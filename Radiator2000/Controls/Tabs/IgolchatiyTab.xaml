@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="300">
     <Grid>
-        <Button>sdfa</Button>
+        <Button Click="Button_Click">sdfa</Button>
     </Grid>
 </UserControl>

@@ -24,5 +24,10 @@ namespace Radiator2000.Controls.Tabs
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
