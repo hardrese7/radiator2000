@@ -15,7 +15,7 @@ namespace Radiator2000.Logic
             if(type == Constants.RadiatorTypes.Igolchatiy)
             {
                 answer.Add(new ComboboxItem("Бородин С.М.", "IgolchatiyTab"));
-                answer.Add(new ComboboxItem("Хуёдин С.М.", "IgolchatiyTab"));
+                answer.Add(new ComboboxItem("Тест", "Test"));
                 answer.Add(new ComboboxItem("Пиздётин С.М.", "IgolchatiyTab"));
             }
             else if (type == Constants.RadiatorTypes.IgolchatoStyrevoy)

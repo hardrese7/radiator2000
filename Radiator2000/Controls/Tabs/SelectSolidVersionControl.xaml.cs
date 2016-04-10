@@ -24,13 +24,6 @@ namespace Radiator2000.Controls.Tabs
         public SelectSolidVersionControl()
         {
             InitializeComponent();
-            var solids = new List<ComboboxItem>()
-            {
-                new ComboboxItem("2010", ""),
-                new ComboboxItem("2011", ""),
-                new ComboboxItem("2012", "")
-            };
-            solidVersionsComboBox.ItemsSource = solids;
         }
 
         private void solidVersionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
