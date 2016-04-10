@@ -125,13 +125,17 @@
     </UserControl.Resources>
     <Grid>
         <Grid Grid.Row="0">
-            <Label Grid.Column="0">Тип радиатора:</Label>
-            <ComboBox Grid.Column="1" x:Name="radiatorTypeComboBox"  Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" SelectionChanged="RadiatorType_OnChange" Cursor="Hand"/>
-            <Label Grid.Column="2">Методика расчёта:</Label>
-            <ComboBox Grid.Column="3" x:Name="calculationMethodComboBox" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" SelectionChanged="CalculationMethod_OnChange" Height="30" Cursor="Hand">
+            <Label Grid.Column="0">Версия SolidWorks:</Label>
+            <ComboBox Grid.Column="1" x:Name="solidWersion"  Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" SelectionChanged="solidWersion_SelectionChanged" Cursor="Hand"/>
+            <Label Grid.Column="2">Тип радиатора:</Label>
+            <ComboBox Grid.Column="3" x:Name="radiatorTypeComboBox"  Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" SelectionChanged="RadiatorType_OnChange" Cursor="Hand"/>
+            <Label Grid.Column="4">Методика расчёта:</Label>
+            <ComboBox Grid.Column="5" x:Name="calculationMethodComboBox" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" SelectionChanged="CalculationMethod_OnChange" Height="30" Cursor="Hand">
             </ComboBox>
 
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition Width="95"></ColumnDefinition>
                 <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition Width="115"></ColumnDefinition>

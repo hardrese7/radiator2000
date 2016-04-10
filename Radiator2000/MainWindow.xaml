@@ -6,8 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radiator2000"
         mc:Ignorable="d"
-        Title="Радиатор 2000" Height="350" Width="525" ResizeMode="CanMinimize">
-    
+        Title="Радиатор 2000" Height="350" Width="800" ResizeMode="CanMinimize">
+
     <Grid Name="grid">
 
         <controls:TabControl x:Name="RadiatorTab"/>

@@ -1,6 +1,8 @@
 ﻿using Radiator2000.Logic;
+using SolidWorks.Interop.sldworks;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,31 @@ namespace Radiator2000.Controls
     /// </summary>
     public partial class TabControl : UserControl
     {
+        Dictionary<string, object> _processDictionary = new Dictionary<string, object>();
+        //Dictionary<String, Guid> guids = new Dictionary<string, Guid>();
+        //
+
+        private void CheckSolidVersion(string version, Guid guid)
+        {
+            try
+            {
+                var type = Type.GetTypeFromCLSID(guid, true);
+                var proc = Activator.CreateInstance(type);
+
+                if (proc != null)
+                {
+                    _processDictionary.Add(version, proc);
+                    solidWersion.Items.Add(version);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+
+
         public TabControl()
         {
             _controlsList = new Dictionary<string, UserControl>();
@@ -37,7 +64,29 @@ namespace Radiator2000.Controls
             //выключаем комбобоксы
             EnableCalculationMethodCheckbox(false);
             EnableRadiatorTypeCheckbox(false);
+
+
+            #region Проверка версий солида, инициализация
+            Process[] processes = Process.GetProcessesByName("SLDWORKS");
+            foreach (Process process in processes)
+            {
+                process.CloseMainWindow();
+                process.Kill();
+            }
+            CheckSolidVersion("2011", new Guid("B4875E89-91F6-4124-BB63-2539727E98F0"));
+            CheckSolidVersion("2012", new Guid("B4875E89-91F6-4124-BB63-2539727E98FA"));
+            CheckSolidVersion("2013", new Guid("0D825E02-9000-4D82-B4AB-D6BDC2872797"));
+            CheckSolidVersion("2014", new Guid("CF33D714-2C34-4608-8766-2536E6C41536"));
+
+            if (solidWersion.Items.Count == 0)
+            {
+                MessageBox.Show("На компьютере не установлен SolidWorks, работа программы невозможна. \n Программа будет закрыта.");
+                MainWindow win = (MainWindow)Window.GetWindow(this);
+                win.Close();
+            }
+
             OpenPage(Constants.Pages.SelectSolidVersionControl);
+            #endregion
         }
 
         /// <summary>
@@ -61,7 +110,7 @@ namespace Radiator2000.Controls
 
         private void CalculationMethod_OnChange(object sender, RoutedEventArgs e)
         {
-            
+
             var comboBox = sender as ComboBox;
             ComboboxItem selectedItem = (ComboboxItem)comboBox.SelectedItem;
             if (selectedItem == null) return;
@@ -83,6 +132,7 @@ namespace Radiator2000.Controls
                 return;
             }
             try
+            // отсыл на страницу Radiator2000.Controls.Tabs.IgolchatiyTab
             {
                 tab = (UserControl)Activator.CreateInstance(Type.GetType("Radiator2000.Controls.Tabs." + tag));
                 _controlsList.Add(tag, tab);
@@ -116,6 +166,14 @@ namespace Radiator2000.Controls
             //Скрипников Ю.Ф.
             //Роткоп Л.Л.
             //ОСТ 4.012.001
+        }
+
+        private void solidWersion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Блаблабла хуета
+            //инициализируем чёто там нах, а потом открываем другую страничку.
+            OpenPage(Constants.Pages.SelectRadiatorType);
+            EnableRadiatorTypeCheckbox(true);
         }
     }
 }
