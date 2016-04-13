@@ -11,8 +11,8 @@ namespace Radiator2000.Logic
         public static List<ComboboxItem> GetItemsForRadiatorType(string type)
         {
             var answer = new List<ComboboxItem>();
-            
-            if(type == Constants.RadiatorTypes.Igolchatiy)
+
+            if (type == Constants.RadiatorTypes.Igolchatiy)
             {
                 answer.Add(new ComboboxItem("Бородин С.М.", "IgolchatiyTab"));
                 answer.Add(new ComboboxItem("Тест", "Test"));
@@ -29,6 +29,12 @@ namespace Radiator2000.Logic
                 answer.Add(new ComboboxItem("3Бородин С.М.", "IgolchatiyTab"));
                 answer.Add(new ComboboxItem("3Хуёдин С.М.", "IgolchatiyTab"));
                 answer.Add(new ComboboxItem("2Пиздётин С.М.", "IgolchatiyTab"));
+            }
+            else if (type == Constants.RadiatorTypes.Igolchatiynew)
+            {
+                answer.Add(new ComboboxItem("4Бородин С.М.", "IgolchatiyTab"));
+                answer.Add(new ComboboxItem("5Хуёдин С.М.", "IgolchatiyTab"));
+                answer.Add(new ComboboxItem("6Пиздётин С.М.", "IgolchatiyTab"));
             }
             return answer;
         }

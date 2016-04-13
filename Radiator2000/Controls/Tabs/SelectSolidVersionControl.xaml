@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Radiator2000.Controls.Tabs"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="510">
+             d:DesignHeight="800" d:DesignWidth="790">
     <Grid>
         <Label VerticalAlignment="Center" Width="180" HorizontalAlignment="Center" Grid.Column="0">Выберите версию SolidWorks.</Label>
 
