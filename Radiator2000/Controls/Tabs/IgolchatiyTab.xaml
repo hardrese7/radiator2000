@@ -8,37 +8,43 @@
              d:DesignHeight="800" d:DesignWidth="790">
     <Grid>
         <Grid Grid.Column="0">
-            <Label Grid.Row="9" Margin="39,89,-49,-127">Температура среды, К.</Label>
-            <TextBox Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="239,89,0,-113" Grid.Row="9"/>
-            <Label Grid.Row="9" Content="Предельная температура, К." Margin="39,133,-39,-175"/>
-            <TextBox Grid.Row="9" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="239,133,0,-157"></TextBox>
-            <Label Grid.Row="9" Content="Сопротивлние между р-n&#xD;&#xA;переходом и корпус, К/Вт." Margin="39,168,-39,-210"/>
-            <TextBox Grid.Row="9"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="239,177,0,-201"/>
-            <Label Grid.Row="9" Content="Сопротивление между&#xD;&#xA;корпусом и радиатор, К/Вт." Margin="39,212,-39,-254"/>
-            <TextBox Grid.Row="9"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="239,221,0,-245"></TextBox>
-            <Label Grid.Row="9" Content="Мощность которую &#xD;&#xA;необходимо рассеять, Вт." Margin="39,256,-39,-298"/>
-            <TextBox Grid.Row="9"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="239,265,0,-289"></TextBox>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="42" />
-                <RowDefinition Height="0" />
-                <RowDefinition Height="42" />
-                <RowDefinition Height="0" />
-                <RowDefinition Height="42" />
-                <RowDefinition Height="0" />
-                <RowDefinition Height="42" />
-                <RowDefinition Height="0" />
-                <RowDefinition Height="42" />
-                <RowDefinition Height="0" />
-            </Grid.RowDefinitions>
+            <GroupBox Header="Входные переменные" HorizontalAlignment="Left" Margin="10,200,0,0"
+		  VerticalAlignment="Top" Height="250" Width="330">
+                <Grid HorizontalAlignment="Left" Height="300" VerticalAlignment="Top"
+		  Width="330" Margin="0,0,-2,-12">
+                    <Label Grid.Row="0" Margin="10,8,-10,36" Grid.RowSpan="3" >Температура среды, К.</Label>
+                    <TextBox Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"  />
+                    <Label Grid.Row="2" Content="Предельная температура, К." Margin="10,7,-10,37" Grid.RowSpan="3"/>
+                    <TextBox Grid.Row="2" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"></TextBox>
+                    <Label Grid.Row="3" Content="Сопротивлние между р-n&#xD;&#xA;переходом и корпус, К/Вт." Margin="10,0,-10,1" Grid.RowSpan="2"/>
+                    <TextBox Grid.Row="4"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
+                    <Label Grid.Row="5" Content="Сопротивление между&#xD;&#xA;корпусом и радиатор, К/Вт." Margin="10,2,-39,-254"/>
+                    <TextBox Grid.Row="6"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"></TextBox>
+                    <Label Grid.Row="7" Content="Мощность которую &#xD;&#xA;необходимо рассеять, Вт." Margin="10,2,-39,-298"/>
+                    <TextBox Grid.Row="8"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="200,9,0,-289"></TextBox>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </GroupBox>
         </Grid>
 
         <Grid Grid.Column="1">
             <Label Content=""/>
         </Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="207" VerticalAlignment="Top" Width="239" Source="/Radiator2000;component/Resourses/stir2.png" Margin="84,50,0,0"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="151" VerticalAlignment="Top" Width="185" Source="/Radiator2000;component/Resourses/stir2.png" Margin="72,20,0,0"/>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400*" />
-            <ColumnDefinition Width="390*" />
+            <ColumnDefinition Width="350*" />
+            <ColumnDefinition Width="440*" />
         </Grid.ColumnDefinitions>
 
     </Grid>
