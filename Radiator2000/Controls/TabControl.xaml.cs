@@ -23,7 +23,7 @@ namespace Radiator2000.Controls
     /// </summary>
     public partial class TabControl : UserControl
     {
-        Dictionary<string, object> _processDictionary = new Dictionary<string, object>();
+        public Dictionary<string, object> _processDictionary = new Dictionary<string, object>();
         //Dictionary<String, Guid> guids = new Dictionary<string, Guid>();
         //
 
@@ -58,7 +58,8 @@ namespace Radiator2000.Controls
             {
                 new ComboboxItem(Constants.RadiatorTypes.Igolchatiy, ""),
                 new ComboboxItem(Constants.RadiatorTypes.IgolchatoStyrevoy, ""),
-                new ComboboxItem(Constants.RadiatorTypes.Zhaluziynyi, "")
+                new ComboboxItem(Constants.RadiatorTypes.Zhaluziynyi, ""),
+                new ComboboxItem(Constants.RadiatorTypes.Igolchatiynew, ""),
             };
             radiatorTypeComboBox.ItemsSource = radiatorTypes;
             //выключаем комбобоксы
@@ -89,6 +90,7 @@ namespace Radiator2000.Controls
             #endregion
         }
 
+       
         /// <summary>
         /// Переключает состояние комбобокса с типом радиаторов
         /// </summary>

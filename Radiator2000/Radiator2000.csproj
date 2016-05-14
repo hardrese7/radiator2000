@@ -113,6 +113,7 @@
     <Compile Include="Controls\Tabs\SelectSolidVersionControl.xaml.cs">
       <DependentUpon>SelectSolidVersionControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logic\BorodinCalculation.cs" />
     <Compile Include="Logic\ComboboxItem.cs" />
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Logic\Helpers.cs" />
