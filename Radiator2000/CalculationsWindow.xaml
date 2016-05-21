@@ -1,0 +1,31 @@
+﻿<Window x:Class="Radiator2000.CalculationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Radiator2000"
+        mc:Ignorable="d"
+        Title="CalculationsWindow" Height="300" Width="300">
+    <Grid>
+        <Grid ShowGridLines="True">
+            <!-- Устанавливаем две строки -->
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <!-- Устанавливаем три столбца -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- Размещаем элементы в сетке -->
+            <Label Grid.Row="0" Grid.Column="0">Ширина</Label>
+            <Label Grid.Row="1" Grid.Column="0" Name="ShirinaLabel"></Label>
+            <Label Grid.Row="2" Grid.Column="0">Высота</Label>
+            <Label Grid.Row="3" Grid.Column="0" Name="VisotaLabel"></Label>
+        </Grid>
+    </Grid>
+</Window>

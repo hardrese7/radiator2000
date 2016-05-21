@@ -56,10 +56,10 @@ namespace Radiator2000.Controls
             //инициализируем типы радиаторов в комбобоксе
             var radiatorTypes = new List<ComboboxItem>()
             {
-                new ComboboxItem(Constants.RadiatorTypes.Igolchatiy, ""),
+                new ComboboxItem(Constants.RadiatorTypes.Rebrisiy, ""),
                 new ComboboxItem(Constants.RadiatorTypes.IgolchatoStyrevoy, ""),
                 new ComboboxItem(Constants.RadiatorTypes.Zhaluziynyi, ""),
-                new ComboboxItem(Constants.RadiatorTypes.Igolchatiynew, ""),
+                new ComboboxItem(Constants.RadiatorTypes.Igolchatiy, ""),
             };
             radiatorTypeComboBox.ItemsSource = radiatorTypes;
             //выключаем комбобоксы

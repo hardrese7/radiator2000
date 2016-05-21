@@ -67,14 +67,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalculationsWindow.xaml.cs">
+      <DependentUpon>CalculationsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="CalculationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Tabs\Test.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\Tabs\IgolchatiyTab.xaml">
+    <Page Include="Controls\Tabs\RebristiyTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,8 +108,8 @@
     <Compile Include="Controls\Tabs\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Tabs\IgolchatiyTab.xaml.cs">
-      <DependentUpon>IgolchatiyTab.xaml</DependentUpon>
+    <Compile Include="Controls\Tabs\RebristiyTab.xaml.cs">
+      <DependentUpon>RebristiyTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Tabs\SelectCalculationMethod.xaml.cs">
       <DependentUpon>SelectCalculationMethod.xaml</DependentUpon>
@@ -113,7 +120,8 @@
     <Compile Include="Controls\Tabs\SelectSolidVersionControl.xaml.cs">
       <DependentUpon>SelectSolidVersionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Logic\BorodinCalculation.cs" />
+    <Compile Include="Logic\RebristiyBorodinCoefficients.cs" />
+    <Compile Include="Logic\RebristiyCalculation.cs" />
     <Compile Include="Logic\ComboboxItem.cs" />
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Logic\Helpers.cs" />

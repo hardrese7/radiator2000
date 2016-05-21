@@ -10,10 +10,10 @@ namespace Radiator2000.Logic
     {
         public static class RadiatorTypes
         {
-            public static string Igolchatiy = "Ребристый";
+            public static string Rebrisiy = "Ребристый";
             public static string IgolchatoStyrevoy = "Игольчато-Штыревой";
             public static string Zhaluziynyi = "Жалюзийный";
-            public static string Igolchatiynew = "Игольчатый";
+            public static string Igolchatiy = "Игольчатый";
         }
 
         public static class Pages

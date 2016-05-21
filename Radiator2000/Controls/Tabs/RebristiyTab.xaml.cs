@@ -1,41 +1,41 @@
 ﻿using Radiator2000.Logic;
 using SolidWorks.Interop.sldworks;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Diagnostics;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Radiator2000.Controls.Tabs
 {
     /// <summary>
     /// Interaction logic for IgolchatiyTab.xaml
     /// </summary>
-    public partial class IgolchatiyTab : UserControl
+    public partial class RebristiyTab : UserControl
     {
-        public IgolchatiyTab()
+        public RebristiyTab()
         {
             InitializeComponent();
+            SetBorodinCoefficients();
         }
 
+
+        #region onclick events
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void BuildClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SwBuild(Calculate());
+            }
+            catch (Exception ex)
+            {
+                ErrorHandler(ex);
+            }
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
@@ -43,28 +43,56 @@ namespace Radiator2000.Controls.Tabs
 
         }
 
-        private void Calculate(object sender, RoutedEventArgs e)
+        private RebristiyCalculation Calculate()
         {
-            var borodin = new BorodinCalculation();
+            var calculations = new RebristiyCalculation();
 
             var ts = Convert.ToDouble(TS.Text);      //конвектируем введенные данные в дабл
             var rpk = Convert.ToDouble(Rpk.Text);
             var rkr = Convert.ToDouble(Rkr.Text);
             var p = Convert.ToDouble(P.Text);
             var tmax = Convert.ToDouble(Tmax.Text);
+
+            var borodinCoefficients = new RebristiyBorodinCoefficients()
+            {
+                k3 = Convert.ToDouble(k3_Label.Text),
+                ks = Convert.ToDouble(ks_Label.Text),
+                k4 = Convert.ToDouble(k4_Label.Text),
+                q = Convert.ToDouble(q_Label.Text),
+                h = Convert.ToDouble(h_Label.Text),
+                delt = Convert.ToDouble(delt_Label.Text),
+                alfa = Convert.ToDouble(alfa_Label.Text)
+            };
+            calculations.Calculate(ts, rpk, rkr, p, tmax, borodinCoefficients);
+            return calculations;
+        }
+
+        public void SetBorodinCoefficients()
+        {
+            k3_Label.Text = "0,8";
+            ks_Label.Text = "7";
+            k4_Label.Text = "1";
+            h_Label.Text = "0,03";
+            q_Label.Text = "0,0015";
+            delt_Label.Text = "0,004";
+            alfa_Label.Text = "7";
+        }
+
+        private void CalculateClick(object sender, RoutedEventArgs e)
+        {
             try
             {
-                borodin.Calculate(ts, rpk, rkr, p, tmax);
-                SwBuild(borodin);
+                InitCalculationsWindow(Calculate());
             }
             catch (Exception ex)
             {
-                ErrorLabel.Content = ex.Message.FirstOrDefault();
-                ErrorLabel.Visibility = Visibility.Visible;
+                ErrorHandler(ex);
             }
         }
+        #endregion
 
-        public void SwBuild(BorodinCalculation borodin)
+        #region SwBuild
+        public void SwBuild(RebristiyCalculation calculations)
         {
             SldWorks SwApp;
             IModelDoc2 swModel;
@@ -103,7 +131,7 @@ namespace Radiator2000.Controls.Tabs
             // отчистка выделения
             swModel.ClearSelection2(true);
             // строим прямоугольник
-            swModel.SketchManager.CreateCornerRectangle(0, 0, 0, borodin.H, borodin.D, 0);
+            swModel.SketchManager.CreateCornerRectangle(0, 0, 0, calculations.H, calculations.D, 0);
             //отчистка выделения
             swModel.ClearSelection2(true);
             //выбираем грани
@@ -112,7 +140,7 @@ namespace Radiator2000.Controls.Tabs
             swModel.Extension.SelectByID2("Line4", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
             swModel.Extension.SelectByID2("Line3", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
             //операция выдавливания
-            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, borodin.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
+            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, calculations.BorodinCoefficients.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
             swModel.SelectionManager.EnableContourSelection = true;
             //boolstatus = swModel.Extension.SelectByID2("", "", 0.035317911637093857, 0.0099999999999909051, 0.0043238272226631125, false, 0, null, 0);
 
@@ -120,14 +148,28 @@ namespace Radiator2000.Controls.Tabs
             swModel.ClearSelection2(true);
             // запускаем цикл построения пластин радиатора
 
-            double tempX = borodin.H - borodin.q;
-            swModel.SketchManager.CreateCornerRectangle(borodin.H, borodin.D, 0, tempX, 0, 0);
-            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, borodin.h + borodin.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
+            double tempX = calculations.H - calculations.BorodinCoefficients.q;
+            swModel.SketchManager.CreateCornerRectangle(calculations.H, calculations.D, 0, tempX, 0, 0);
+            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, calculations.BorodinCoefficients.h + calculations.BorodinCoefficients.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
             swModel.Extension.SelectByID2("Бобышка-Вытянуть2", "BODYFEATURE", 0.051638235435518709, 0.046942041222166608, 0.023999999999944066, false, 4, null, 0);
-            swModel.Extension.SelectByID2("", "EDGE", 0.017168894188387185, borodin.H, borodin.delt, true, 1, null, 0);
-            swModel.FeatureManager.FeatureLinearPattern2(borodin.Count, borodin.b + borodin.q, 1, borodin.q, false, false, "NULL", "NULL", false);
+            swModel.Extension.SelectByID2("", "EDGE", 0.017168894188387185, calculations.H, calculations.BorodinCoefficients.delt, true, 1, null, 0);
+            swModel.FeatureManager.FeatureLinearPattern2(calculations.Count, calculations.b + calculations.BorodinCoefficients.q, 1, calculations.BorodinCoefficients.q, false, false, "NULL", "NULL", false);
+        }
+        #endregion
+        #region additional methods
+        public void InitCalculationsWindow(RebristiyCalculation calculations)
+        {
+            var window = new CalculationsWindow { Owner = (MainWindow)Window.GetWindow(this) };
+            window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.D);
+            window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.H);
+            window.ShowDialog();
         }
 
-
+        private void ErrorHandler(Exception ex)
+        {
+            ErrorLabel.Content = ex.Message;
+            ErrorLabel.Visibility = Visibility.Visible;
+        }
+        #endregion
     }
 }
