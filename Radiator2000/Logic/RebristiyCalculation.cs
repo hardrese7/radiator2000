@@ -12,8 +12,9 @@ namespace Radiator2000.Logic
         public double D { get; set; }
         public int Count { get; set; }
         public double b { get; set; }
+        public double sp { get; set; }
 
-        //коэфициенты/приближения
+                //коэфициенты/приближения
         public RebristiyBorodinCoefficients BorodinCoefficients { get; set; }
 
 

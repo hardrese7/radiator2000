@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="790">
     <Grid>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center">Теперь выберите методику расчёта</Label>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">Выберите методику расчёта</Label>
     </Grid>
 </UserControl>

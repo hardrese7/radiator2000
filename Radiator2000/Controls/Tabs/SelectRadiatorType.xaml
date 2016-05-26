@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="790">
     <Grid>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center">Для начала работы выберите тип радиатора</Label>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Content="Выберите тип радиатора"/>
     </Grid>
 </UserControl>
