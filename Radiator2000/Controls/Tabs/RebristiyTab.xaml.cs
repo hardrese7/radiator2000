@@ -52,7 +52,7 @@ namespace Radiator2000.Controls.Tabs
             var rkr = Convert.ToDouble(Rkr.Text);
             var p = Convert.ToDouble(P.Text);
             var tmax = Convert.ToDouble(Tmax.Text);
-            
+
             var borodinCoefficients = new RebristiyBorodinCoefficients()
             {
                 k3 = Convert.ToDouble(k3_Label.Text),
@@ -113,7 +113,7 @@ namespace Radiator2000.Controls.Tabs
             //var tc = (TabControl)Parent;
             MainWindow win = (MainWindow)Window.GetWindow(this);
             var version = (string)win._tabControl.solidWersion.SelectedItem;
-            
+
             SwApp = (SldWorks)win._tabControl._processDictionary[version];             // передаем переменной SwApp полученный в солиде объект
             SwApp.Visible = true;                           //делаем процесс видимым
             // создает 3д документ
@@ -167,11 +167,18 @@ namespace Radiator2000.Controls.Tabs
             window.KolishestvoReberLabel.Content = string.Format("{0:0}", calculations.Count);
             window.TolshinaOsnLabel.Content = string.Format("{0:0.0000}", calculations.BorodinCoefficients.delt);
             window.PlosadOsnLabel.Content = string.Format("{0:0.000000000}", calculations.sp);
-            
+
             window.ShowDialog();
         }
 
-   
+        public void InitTipovieWindows(RebristiyCalculation calculations)
+        {
+            var window = new TipovieWindow { Owner = (MainWindow)Window.GetWindow(this) };
+            window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.D);
+            window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.H);
+            window.ShowDialog();
+        }
+
         private void ErrorHandler(Exception ex)
         {
             ErrorLabel.Content = ex.Message;
