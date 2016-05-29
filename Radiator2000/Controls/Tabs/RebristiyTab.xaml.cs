@@ -171,13 +171,13 @@ namespace Radiator2000.Controls.Tabs
             window.ShowDialog();
         }
 
-        public void InitTipovieWindows(RebristiyCalculation calculations)
-        {
-            var window = new TipovieWindow { Owner = (MainWindow)Window.GetWindow(this) };
-            window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.D);
-            window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.H);
-            window.ShowDialog();
-        }
+        //public void InitTipovieWindows(RebristiyCalculation calculations)
+       // {
+            //var window = new TipovieWindow { Owner = (MainWindow)Window.GetWindow(this) };
+            //window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.D);
+           // window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.H);
+           // window.ShowDialog();
+       // }
 
         private void ErrorHandler(Exception ex)
         {
