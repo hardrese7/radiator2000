@@ -1,11 +1,11 @@
-﻿<Window x:Class="Radiator2000.CalculationsWindow"
+﻿<Window x:Name="Расчет_радиатора" x:Class="Radiator2000.CalculationsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radiator2000"
         mc:Ignorable="d"
-        Title="CalculationsWindow" Height="320" Width="430">
+        Title="Расчет радиатора" Height="350" Width="580">
     <Grid>
         <Grid ShowGridLines="False">
             <!-- Устанавливаем две строки -->
@@ -24,41 +24,47 @@
             <!-- Устанавливаем три столбца -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="90"></ColumnDefinition>
-                <ColumnDefinition Width="25"></ColumnDefinition>
-                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="26"></ColumnDefinition>
+                <ColumnDefinition Width="45"></ColumnDefinition>
                 <ColumnDefinition Width="22*"></ColumnDefinition>
                 <ColumnDefinition Width="41*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <!-- Размещаем элементы в сетке -->
-            <Label Grid.Row="0" Grid.Column="0">Ширина</Label>
-            <Label Grid.Row="0" Grid.Column="1">D=</Label>
+            <Label Grid.Row="0" Grid.Column="0" Margin="0,3,0,0" FontFamily="Arial">Ширина</Label>
+            <Label Grid.Row="0" Grid.Column="1" FontStyle="Italic"  Margin="0,3,0,0" FontFamily="Arial">D=</Label>
             <Label Grid.Row="0" Grid.Column="2" Name="ShirinaLabel"></Label>
             <Label Grid.Row="0" Grid.Column="3" >[m]</Label>
-            <Label Grid.Row="1" Grid.Column="0">Высота</Label>
-            <Label Grid.Row="1" Grid.Column="1" >H=</Label>
+            <Label Grid.Row="1" Grid.Column="0" Margin="0,3,0,0" FontFamily="Arial">Высота</Label>
+            <Label Grid.Row="1" Grid.Column="1"  Margin="0,3,0,0" FontFamily="Arial" FontStyle="Italic" >H=</Label>
             <Label Grid.Row="1" Grid.Column="2" Name="VisotaLabel" ></Label>
             <Label Grid.Row="1" Grid.Column="3">[m]</Label>
-            <Label Grid.Row="2" Grid.Column="0" Content="Высота ребер"/>
-            <Label Grid.Row="2" Grid.Column="1">h=</Label>
+            <Label Grid.Row="2" Grid.Column="0" Margin="0,3,0,0" FontFamily="Arial" Content="Высота ребер"/>
+            <Label Grid.Row="2" Grid.Column="1"  Margin="0,3,0,0" FontFamily="Arial" FontStyle="Italic" FontSize="13.333">h=</Label>
             <Label Grid.Row="2" Grid.Column="2" Name="VisotaReberLabel"></Label>
             <Label Grid.Row="2" Grid.Column="3" >[m]</Label>
-            <Label Grid.Row="3" Grid.Column="0" Content="Межреберное&#xD;&#xA;расстояние" />
-            <Label Grid.Row="3" Grid.Column="1" Margin="0,7,0,0">b=</Label>
+            <Label Grid.Row="3" Grid.Column="0" Margin="0,2,0,0" FontFamily="Arial" Content="Межреберное&#xD;&#xA;расстояние" />
+            <Label Grid.Row="3" Grid.Column="1"  Margin="0,7,0,0" FontFamily="Arial" FontStyle="Italic" FontSize="13.333">b=</Label>
             <Label Grid.Row="3" Grid.Column="2" Name="MegreberLabel" Margin="0,7,0,0"></Label>
             <Label Grid.Row="3" Grid.Column="3" Margin="0,7,0,0">[m]</Label>
-            <Label Grid.Row="4" Grid.Column="0" Content="Толщина&#xD;&#xA;основания" />
-            <Label Grid.Row="4" Grid.Column="1" Margin="0,7,0,0">d=</Label>
+            <Label Grid.Row="4" Grid.Column="0"  Margin="0,2,0,0" FontFamily="Arial" Content="Толщина&#xD;&#xA;основания" />
+            <Label Grid.Row="4" Grid.Column="1"  Margin="0,7,0,0" FontFamily="Arial" FontStyle="Italic">d=</Label>
             <Label Grid.Row="4" Grid.Column="2" Name="TolshinaOsnLabel" Margin="0,7,0,0"></Label>
             <Label Grid.Row="4" Grid.Column="3" Margin="0,7,0,0">[m]</Label>
-            <Label Grid.Row="5" Grid.Column="0" Content="Площадь&#xD;&#xA;радиатора" />
-            <Label Grid.Row="5" Grid.Column="1" Margin="0,7,0,0">S=</Label>
+            <Label Grid.Row="5" Grid.Column="0"  Margin="0,2,0,0" FontFamily="Arial" Content="Площадь&#xD;&#xA;радиатора" />
+            <Label Grid.Row="5" Grid.Column="1"  Margin="0,7,0,0" FontFamily="Arial" FontStyle="Italic">S=</Label>
             <Label Grid.Row="5" Grid.Column="2" Name="PlosadOsnLabel" Margin="0,7,0,0"></Label>
             <Label Grid.Row="5" Grid.Column="3" Margin="0,7,0,0">[m^2]</Label>
-            <Label Grid.Row="6" Grid.Column="0" Content="Количество&#xD;&#xA;ребер"/>
-            <Label Grid.Row="6" Grid.Column="1" Margin="0,7,0,0">n=</Label>
-            <Label Grid.Row="6" Grid.Column="2" Name="KolishestvoReberLabel" Margin="0,7,0,0"></Label>
-            <Label Grid.Row="6" Grid.Column="3" ></Label>
-            <Image x:Name="image" HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="198" Source="/Radiator2000;component/Resourses/stir2.png" RenderTransformOrigin="1.769,0.337" Grid.Column="3" Margin="59,0,0,0" Grid.RowSpan="4" Grid.ColumnSpan="2" Grid.Row="2" />
+            <Label Grid.Row="6" Grid.Column="0"  Margin="0,2,0,0" FontFamily="Arial" Content="Толщина&#xD;&#xA;ребер"/>
+            <Label Grid.Row="6" Grid.Column="1" Margin="0,7,0,0" FontStyle="Italic">
+                <Image x:Name="Бородин2_png" Height="16" Source="Бородин2.png" Stretch="Fill" Width="19"/>
+            </Label>
+            <Label Grid.Row="6" Grid.Column="2" Name="TolshinaReberLabel" Margin="0,7,0,0"></Label>
+            <Label Grid.Row="6" Grid.Column="3" Margin="0,7,0,0">[m]</Label>
+            <Label Grid.Row="7" Grid.Column="0"  Margin="0,2,0,0" FontFamily="Arial" Content="Количество&#xD;&#xA;ребер"/>
+            <Label Grid.Row="7" Grid.Column="1"  Margin="0,7,0,0" FontFamily="Arial" FontStyle="Italic" FontSize="13.333">n=</Label>
+            <Label Grid.Row="7" Grid.Column="2" Name="KolishestvoReberLabel" Margin="0,7,0,0"></Label>
+            <Label Grid.Row="7" Grid.Column="3" ></Label>
+            <Image x:Name="Бородин1_png" Grid.Column="3" Margin="52,0,22,10" Grid.RowSpan="8" Source="Бородин1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </Window>

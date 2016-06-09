@@ -63,11 +63,11 @@
                         <TextBox Grid.Row="2" Name="ks_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"/>
                         <Label Grid.Row="3" Content="Коэф. формы основания" Margin="10,7,-10,1" Grid.RowSpan="2"/>
                         <TextBox Grid.Row="4" Name="k4_Label"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
-                        <Label Grid.Row="5" Content="Высота ребер, мм." Margin="10,7,-39,-254"/>
+                        <Label Grid.Row="5" Content="Высота ребер, м." Margin="10,7,-39,-254"/>
                         <TextBox Grid.Row="6" Name="h_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
-                        <Label Grid.Row="7" Content="Толщина ребер, мм." Margin="10,7,-39,-298"/>
+                        <Label Grid.Row="7" Content="Толщина ребер, м." Margin="10,7,-39,-298"/>
                         <TextBox Grid.Row="8" Name="q_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="200,9,0,-289"/>
-                        <Label Grid.Row="9" Content="Толщина основания, мм." Margin="10,7,-39,-254"/>
+                        <Label Grid.Row="9" Content="Толщина основания, м." Margin="10,7,-39,-254"/>
                         <TextBox Grid.Row="10" Name="delt_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
                         <Label Grid.Row="11" Content="Коэф. теплоотдачи" Margin="10,7,-39,-254"/>
                         <TextBox Grid.Row="12" Name="alfa_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>

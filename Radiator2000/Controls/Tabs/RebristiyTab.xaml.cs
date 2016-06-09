@@ -162,11 +162,12 @@ namespace Radiator2000.Controls.Tabs
             var window = new CalculationsWindow { Owner = (MainWindow)Window.GetWindow(this) };
             window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.D);
             window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.H);
-            window.VisotaReberLabel.Content = string.Format("{0:0.0000}", calculations.BorodinCoefficients.h);
+            window.VisotaReberLabel.Content = string.Format("{0:0.000}", calculations.BorodinCoefficients.h);
             window.MegreberLabel.Content = string.Format("{0:0.0000}", calculations.b);
             window.KolishestvoReberLabel.Content = string.Format("{0:0}", calculations.Count);
-            window.TolshinaOsnLabel.Content = string.Format("{0:0.0000}", calculations.BorodinCoefficients.delt);
+            window.TolshinaOsnLabel.Content = string.Format("{0:0.000}", calculations.BorodinCoefficients.delt);
             window.PlosadOsnLabel.Content = string.Format("{0:0.000000000}", calculations.sp);
+            window.TolshinaReberLabel.Content = string.Format("{0:0.0000}", calculations.BorodinCoefficients.q);
 
             window.ShowDialog();
         }
