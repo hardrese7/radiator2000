@@ -64,7 +64,7 @@
             <Label Grid.Row="7" Grid.Column="1"  Margin="0,7,0,0" FontFamily="Arial" FontStyle="Italic" FontSize="13.333">n=</Label>
             <Label Grid.Row="7" Grid.Column="2" Name="KolishestvoReberLabel" Margin="0,7,0,0"></Label>
             <Label Grid.Row="7" Grid.Column="3" ></Label>
-            <Image x:Name="Бородин1_png" Grid.Column="3" Margin="52,0,22,10" Grid.RowSpan="8" Source="Бородин1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+            <Image x:Name="Бородин1_1_png" Grid.Column="3" Margin="49,5,10,5" Grid.RowSpan="8" Source="Бородин1.1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </Window>
