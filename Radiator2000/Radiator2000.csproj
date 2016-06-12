@@ -73,10 +73,17 @@
     <Compile Include="Controls\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Tabs\RebristiyChern.xaml.cs">
+      <DependentUpon>RebristiyChern.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TipovieWindows.xaml.cs">
       <DependentUpon>TipovieWindows.xaml</DependentUpon>
     </Compile>
     <Page Include="CalculationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tabs\RebristiyChern.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

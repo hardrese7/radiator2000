@@ -17,6 +17,7 @@ namespace Radiator2000.Logic
                 answer.Add(new ComboboxItem("Бородин С.М.", "RebristiyTab"));
                 answer.Add(new ComboboxItem("Тест", "Test"));
                 answer.Add(new ComboboxItem("Скрипников", "RebristiyTab"));
+                answer.Add(new ComboboxItem("Чернышев", "RebristiyChern"));
             }
             else if (type == Constants.RadiatorTypes.IgolchatoStyrevoy)
             {
