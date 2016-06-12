@@ -17,6 +17,7 @@ namespace Radiator2000.Controls.Tabs
         {
             InitializeComponent();
             SetBorodinCoefficients();
+            MainWindow win = (MainWindow)Window.GetWindow(this);
         }
 
 
@@ -114,7 +115,11 @@ namespace Radiator2000.Controls.Tabs
             //var tc = (TabControl)Parent;
             MainWindow win = (MainWindow)Window.GetWindow(this);
             var version = (string)win._tabControl.solidWersion.SelectedItem;
-
+            if(version == Constants.Offline)
+            {
+                MessageBox.Show(Constants.Messages.CantBuildOffline);
+                return;
+            }
             SwApp = (SldWorks)win._tabControl._processDictionary[version];             // передаем переменной SwApp полученный в солиде объект
             SwApp.Visible = true;                           //делаем процесс видимым
             // создает 3д документ

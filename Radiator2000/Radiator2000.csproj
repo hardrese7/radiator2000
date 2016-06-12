@@ -76,6 +76,9 @@
     <Compile Include="Controls\Tabs\RebristiyChern.xaml.cs">
       <DependentUpon>RebristiyChern.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Tabs\Vrazrab.xaml.cs">
+      <DependentUpon>Vrazrab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TipovieWindows.xaml.cs">
       <DependentUpon>TipovieWindows.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Tabs\SelectSolidVersionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tabs\Vrazrab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

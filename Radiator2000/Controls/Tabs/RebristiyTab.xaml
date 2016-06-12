@@ -36,7 +36,7 @@
                 </Grid>
             </GroupBox>
         </Grid>
-        <Label Grid.Column="1" Content="Ошибка" Name="ErrorLabel" Visibility="Hidden" Width="150" Margin="10,150,140,-301"/>
+        <Label Grid.Column="1" Content="Ошибка" Name="ErrorLabel" Visibility="Hidden" Foreground="#FFF11D1D" Width="Auto" Margin="10,150,140,-301"/>
         <Grid Grid.Column="1">
             <Label>
                 <GroupBox Header="Коэффициенты и приближения" HorizontalAlignment="Left"  Margin="10,195,0,0" VerticalAlignment="Top" Height="320" Width="380">

@@ -81,11 +81,11 @@ namespace Radiator2000.Controls
 
             if (solidWersion.Items.Count == 0)
             {
-                MessageBox.Show("На компьютере не установлен SolidWorks, работа программы невозможна. \n Программа будет закрыта.");
-                MainWindow win = (MainWindow)Window.GetWindow(this);
-                win.Close();
+                MessageBox.Show(Constants.Messages.SolidNotInstalled);
+                //MainWindow win = (MainWindow)Window.GetWindow(this);
+                //rwin.Close();
             }
-
+            solidWersion.Items.Add(Constants.Offline);
             OpenPage(Constants.Pages.SelectSolidVersionControl);
             #endregion
         }
@@ -154,7 +154,8 @@ namespace Radiator2000.Controls
         {
             var comboBox = sender as ComboBox;
             ComboboxItem selectedItem = (ComboboxItem)comboBox.SelectedItem;
-
+            if (selectedItem == null)
+                return;
             calculationMethodComboBox.ItemsSource = Helpers.GetItemsForRadiatorType(selectedItem.Text);
             OpenPage(Constants.Pages.SelectCalculationMethod);
             EnableCalculationMethodCheckbox(true);
@@ -176,6 +177,8 @@ namespace Radiator2000.Controls
             //инициализируем чёто там нах, а потом открываем другую страничку.
             OpenPage(Constants.Pages.SelectRadiatorType);
             EnableRadiatorTypeCheckbox(true);
+            radiatorTypeComboBox.SelectedIndex = -1;
+            calculationMethodComboBox.SelectedIndex = -1;
         }
     }
 }
