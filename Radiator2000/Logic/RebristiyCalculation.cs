@@ -21,7 +21,7 @@ namespace Radiator2000.Logic
         public void Calculate(double ts, double rpk, double rkr, double p, double tmax, RebristiyBorodinCoefficients borodinCoefficients)
         {
             BorodinCoefficients = borodinCoefficients;
-            double tp, rrc, dts, sp, so, n, dt;//объявляем выходные переменные 
+            double tp, rrc, dts, so, n, dt;//объявляем выходные переменные 
             //вычисление
             tp = tmax - p * (rpk + rkr);
             if (tp <= ts)

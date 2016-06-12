@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Diagnostics;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Radiator2000.Controls.Tabs
 {
@@ -192,5 +193,18 @@ namespace Radiator2000.Controls.Tabs
             ErrorLabel.Visibility = Visibility.Visible;
         }
         #endregion
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            SetBorodinCoefficients();
+        }
+
+        private void button3_Click_1(object sender, RoutedEventArgs e)
+        {
+            var window = new TipovieWindows { Owner = (MainWindow)Window.GetWindow(this) };
+            window.powerTextBox.Text = P.Text;
+            window.okButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent)); // имитируем клик по кнопке
+            window.ShowDialog();
+        }
     }
 }
