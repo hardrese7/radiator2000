@@ -45,23 +45,24 @@ namespace Radiator2000.Controls.Tabs
 
         private RebristiyCalculation Calculate()
         {
-            var calculations = new RebristiyCalculation();
+            var calculations = new RebristiyCalculation();   //конвектируем введенные данные в дабл
 
-            var ts = Convert.ToDouble(TS.Text);      //конвектируем введенные данные в дабл
-            var rpk = Convert.ToDouble(Rpk.Text);
-            var rkr = Convert.ToDouble(Rkr.Text);
-            var p = Convert.ToDouble(P.Text);
-            var tmax = Convert.ToDouble(Tmax.Text);
+            var ts = Convert.ToDouble(TS.Text);      //Температура среды
+            var rpk = Convert.ToDouble(Rpk.Text);    //Сопротивление п-н переход-корпус
+            var rkr = Convert.ToDouble(Rkr.Text);   //сопротивление корпус-радиатор
+            var p = Convert.ToDouble(P.Text);       //мощность
+            var tmax = Convert.ToDouble(Tmax.Text); //Максимальная температура
 
-            var borodinCoefficients = new RebristiyBorodinCoefficients()
+            var borodinCoefficients = new RebristiyBorodinCoefficients()  //конвектируем введенные данные в дабл
             {
                 k3 = Convert.ToDouble(k3_Label.Text),
                 ks = Convert.ToDouble(ks_Label.Text),
-                k4 = Convert.ToDouble(k4_Label.Text),
-                q = Convert.ToDouble(q_Label.Text),
-                h = Convert.ToDouble(h_Label.Text),
-                delt = Convert.ToDouble(delt_Label.Text),
-                alfa = Convert.ToDouble(alfa_Label.Text)
+                k4 = Convert.ToDouble(k4_Label.Text),       //коэф. формы основания
+                q = Convert.ToDouble(q_Label.Text),       // толщина ребер
+                h = Convert.ToDouble(h_Label.Text),         // высота ребер
+                delt = Convert.ToDouble(delt_Label.Text),   //толщина основания
+                alfa = Convert.ToDouble(alfa_Label.Text)       
+                 
             };
             calculations.Calculate(ts, rpk, rkr, p, tmax, borodinCoefficients);
             return calculations;
@@ -71,10 +72,10 @@ namespace Radiator2000.Controls.Tabs
         {
             k3_Label.Text = "0,8";
             ks_Label.Text = "7";
-            k4_Label.Text = "1";
-            h_Label.Text = "0,03";
-            q_Label.Text = "0,0015";
-            delt_Label.Text = "0,004";
+            k4_Label.Text = "1";    //коэф. формы основания
+            h_Label.Text = "0,03";  // высота ребер
+            q_Label.Text = "0,0015";  // толщина ребер
+            delt_Label.Text = "0,004";  //толщина основания
             alfa_Label.Text = "7";
         }
 
@@ -119,7 +120,7 @@ namespace Radiator2000.Controls.Tabs
             // создает 3д документ
             // новая 3д деталь
             SwApp.NewPart();
-
+           
 
             //передаем докупент с 3д деталью в IModelDoc2 swModel; для работы с ним
             swModel = SwApp.IActiveDoc2;
