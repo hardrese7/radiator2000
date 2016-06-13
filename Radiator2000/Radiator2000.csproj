@@ -79,6 +79,8 @@
     <Compile Include="Controls\Tabs\Vrazrab.xaml.cs">
       <DependentUpon>Vrazrab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logic\RebristiyChernCalculation.cs" />
+    <Compile Include="Logic\RebristiyChernCoefficients.cs" />
     <Compile Include="TipovieWindows.xaml.cs">
       <DependentUpon>TipovieWindows.xaml</DependentUpon>
     </Compile>
@@ -198,6 +200,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Бородин1.1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ч2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ч1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ч3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ч5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AB0094_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

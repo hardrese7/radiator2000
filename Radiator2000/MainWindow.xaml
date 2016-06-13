@@ -6,10 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radiator2000"
         mc:Ignorable="d"
-        Title="Радиатор 2000" Height="650" Width="800" ResizeMode="CanMinimize">
+        Title="Радиатор 2000" Height="650" Width="800" ResizeMode="CanMinimize" FontWeight="Bold">
 
     <Grid Name="grid">
 
-        <controls:TabControl x:Name="RadiatorTab"/>
+        <controls:TabControl x:Name="RadiatorTab" FontWeight="Normal"/>
     </Grid>
 </Window>

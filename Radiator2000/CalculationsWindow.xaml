@@ -56,7 +56,7 @@
             <Label Grid.Row="5" Grid.Column="3" Margin="0,7,0,0">[m^2]</Label>
             <Label Grid.Row="6" Grid.Column="0"  Margin="0,2,0,0" FontFamily="Arial" Content="Толщина&#xD;&#xA;ребер"/>
             <Label Grid.Row="6" Grid.Column="1" Margin="0,7,0,0" FontStyle="Italic">
-                <Image x:Name="Бородин2_png" Height="16" Source="Бородин2.png" Stretch="Fill" Width="19"/>
+                <Image x:Name="Бородин2_png"  Margin="-1,1,0,0" Height="13" Source="Бородин2.png" Stretch="Fill" Width="18"/>
             </Label>
             <Label Grid.Row="6" Grid.Column="2" Name="TolshinaReberLabel" Margin="0,7,0,0"></Label>
             <Label Grid.Row="6" Grid.Column="3" Margin="0,7,0,0">[m]</Label>
@@ -64,7 +64,7 @@
             <Label Grid.Row="7" Grid.Column="1"  Margin="0,7,0,0" FontFamily="Arial" FontStyle="Italic" FontSize="13.333">n=</Label>
             <Label Grid.Row="7" Grid.Column="2" Name="KolishestvoReberLabel" Margin="0,7,0,0"></Label>
             <Label Grid.Row="7" Grid.Column="3" ></Label>
-            <Image x:Name="Бородин1_1_png" Grid.Column="3" Margin="49,5,10,5" Grid.RowSpan="8" Source="Бородин1.1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+            <Image x:Name="Бородин1_1_png1" Grid.Column="3" Margin="49,5,10,5" Grid.RowSpan="8" Source="Бородин1.1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </Window>

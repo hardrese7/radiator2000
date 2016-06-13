@@ -66,7 +66,7 @@
                         <Label Grid.Row="1" Content="Высота ребер, м" Margin="10,7,-39,-254"/>
                         <TextBox Grid.Row="2" Name="h_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
                         <Label Grid.Row="3" Content="Толщина ребер, м" Margin="10,7,-39,-298"/>
-                        <TextBox Grid.Row="4" Name="q_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="200,9,0,-289"/>
+                        <TextBox Grid.Row="4" Name="d_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="200,9,0,-289"/>
                         <Label Grid.Row="5" Content="Толщина основания, м" Margin="10,7,-39,-254"/>
                         <TextBox Grid.Row="6" Name="delt_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
                         <Label Grid.Row="7" Content="Межреберное расстояние, м" Margin="10,7,-10,1" Grid.RowSpan="2"/>

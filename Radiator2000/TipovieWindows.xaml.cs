@@ -23,7 +23,8 @@ namespace Radiator2000
         {
             InitializeComponent();
         }
-
+       
+            
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             result.Content = powerTextBox.Text;

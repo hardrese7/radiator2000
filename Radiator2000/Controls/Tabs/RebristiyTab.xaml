@@ -10,7 +10,7 @@
         <Grid Grid.Column="0">
             <GroupBox Header="Входные переменные" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="250" Width="330">
                 <Grid HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="330" Margin="0,0,-2,-12">
-                    <Label Grid.Row="0" Margin="10,8,-10,36" Grid.RowSpan="3" >Температура среды, К</Label>
+                    <Label Grid.Row="0" Margin="10,8,-10,36" Grid.RowSpan="3" Content="Температура среды, K"/>
                     <TextBox Height="25" Text="300" Name="TS" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"  />
                     <Label Grid.Row="2" Content="Предельная температура, К" Margin="10,7,-10,37" Grid.RowSpan="3"/>
                     <TextBox Grid.Row="2" Text="380" Name="Tmax" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"></TextBox>
@@ -36,7 +36,7 @@
                 </Grid>
             </GroupBox>
         </Grid>
-        <Label Grid.Column="1" Content="Ошибка" Name="ErrorLabel" Visibility="Hidden" Foreground="#FFF11D1D" Width="Auto" Margin="10,150,140,-301"/>
+        <Label Grid.Column="0" Content="Ошибка" Name="ErrorLabel" Visibility="Hidden" Foreground="#FFF11D1D" Width="Auto" Margin="10,450,140,-301"/>
         <Grid Grid.Column="1">
             <Label>
                 <GroupBox Header="Коэффициенты и приближения" HorizontalAlignment="Left"  Margin="10,195,0,0" VerticalAlignment="Top" Height="320" Width="380">
@@ -78,8 +78,9 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="151" VerticalAlignment="Top" Width="185" Source="/Radiator2000;component/Resourses/stir2.png" Margin="83,22,0,0"/>
         <Button x:Name="button1" Content="Построить" Grid.Column="1" HorizontalAlignment="Left" Margin="303,527,0,0" VerticalAlignment="Top" Width="100" Click="BuildClick" FontSize="13.333"/>
         <Button x:Name="button2" Content="Расчитать" Grid.Column="1" HorizontalAlignment="Left" Margin="155,527,0,0" VerticalAlignment="Top" Width="100" FontSize="13.333" Click="CalculateClick"/>
-        <Button x:Name="button3" Content="Сопоставление с типовыми&#xD;&#xA;профилями радиаторов" Grid.Column="1" HorizontalAlignment="Left" Margin="124,36,0,0" VerticalAlignment="Top" Width="200" Height="80" FontSize="13.333" Click="button3_Click_1"/>
-        <Button x:Name="button4" Content="Коэфициенты по умолчанию" Grid.Column="1" HorizontalAlignment="Left" Margin="124,150,0,0" VerticalAlignment="Top" Width="200" Height="40" FontSize="13.333" Click="button4_Click"/>
+        <Button x:Name="button3" Content="Сопоставление с типовыми&#xD;&#xA;профилями радиаторов" Grid.Column="1" HorizontalAlignment="Left" Margin="124,22,0,0" VerticalAlignment="Top" Width="200" Height="80" FontSize="13.333" Click="button3_Click_1"/>
+        <Button x:Name="button4" Content="Коэфициенты по умолчанию" Grid.Column="1" HorizontalAlignment="Left" Margin="124,133,0,0" VerticalAlignment="Top" Width="200" Height="40" FontSize="13.333" Click="button4_Click"/>
+        <Label x:Name="label" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="580,243,-240,0" VerticalAlignment="Top" Width="100"/>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350*" />
             <ColumnDefinition Width="440*" />

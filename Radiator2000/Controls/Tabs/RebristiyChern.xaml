@@ -5,10 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Radiator2000.Controls.Tabs"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300">
-     
-
+               d:DesignHeight="800" d:DesignWidth="790">
     <Grid>
-        
+        <Grid Grid.Column="0">
+            <GroupBox Header="Входные переменные" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="280" Width="330">
+                <Grid HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="330" Margin="0,0,-2,-12">
+                    <Label Grid.Row="0" Margin="10,8,-10,36" Grid.RowSpan="3"  >Температура среды,</Label>
+
+                    <TextBox Height="25" Text="300" Name="TS" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"  />
+                    <Label Grid.Row="2" Content="Предельная температура, К." Margin="10,7,-10,37" Grid.RowSpan="3"/>
+                    <TextBox Grid.Row="2" Text="380" Name="Tmax" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,8,0,0"></TextBox>
+                    <Label Grid.Row="3" Content="Сопротивлние между р-n&#xD;&#xA;переходом и корпус, К/Вт." Margin="10,0,-10,1" Grid.RowSpan="2"/>
+                    <TextBox Grid.Row="4" Text="1" Name="Rpk" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
+                    <Label Grid.Row="5" Content="Сопротивление между&#xD;&#xA;корпусом и радиатор, К/Вт." Margin="10,2,-39,-254"/>
+                    <TextBox Grid.Row="6" Text="1" Name="Rkr" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"></TextBox>
+                    <Label Grid.Row="7" Content="Мощность которую &#xD;&#xA;необходимо рассеять, Вт." Margin="10,2,-39,-100"/>
+                    <TextBox Grid.Row="8" Name="P" Height="25" VerticalAlignment="Top" Text="10" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="200,9,0,-289"></TextBox>
+                    <Label Grid.Row="9" Content="Степень черноты материала &#xD;&#xA;теплоотвода" Margin="10,2,-39,-50"/>
+                    <TextBox Grid.Row="10" Text="0,8" Name="E" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"></TextBox>
+                    <Image x:Name="___Radiator2000_component_ч5_png" Margin="132,14,180,13" Source="/Radiator2000;component/ч5.png" Stretch="Fill"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="47" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Label Grid.Column="0" Content="Ошибка" Name="ErrorLabel" Visibility="Hidden" Foreground="#FFF11D1D" Width="Auto"  Height="Auto" Margin="10,500,140,-301"/>
+        <Grid Grid.Column="1">
+            <Label>
+                <GroupBox Header="Коэффициенты и приближения" HorizontalAlignment="Left"  Margin="10,195,0,0" VerticalAlignment="Top" Height="240" Width="380">
+                    <Grid HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="320" Margin="10,0,-2,-12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="0" />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Content="Коэф. формы основания" Margin="10,7,-10,1" Grid.RowSpan="2"/>
+                        <TextBox Grid.Row="0" Name="k4_Label"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
+                        <Label Grid.Row="1" Content="Высота ребер, м" Margin="10,7,-39,-254"/>
+                        <TextBox Grid.Row="2" Name="h_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
+                        <Label Grid.Row="3" Content="Толщина ребер, м" Margin="10,7,-39,-298"/>
+                        <TextBox Grid.Row="4" Name="d_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" RenderTransformOrigin="0.52,0.56" Margin="200,9,0,-289"/>
+                        <Label Grid.Row="5" Content="Толщина основания, м" Margin="10,7,-39,-254"/>
+                        <TextBox Grid.Row="6" Name="delt_Label" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
+                        <Label Grid.Row="7" Content="Межреберное расстояние, м" Margin="10,7,-10,1" Grid.RowSpan="2"/>
+                        <TextBox Grid.Row="8" Name="b_Label"  Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="200,9,0,0"/>
+                    </Grid>
+                </GroupBox>
+            </Label>
+        </Grid>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="151" VerticalAlignment="Top" Width="185" Source="/Radiator2000;component/Resourses/stir2.png" Margin="83,22,0,0"/>
+        <Button x:Name="button1" Content="Построить" Grid.Column="1" HorizontalAlignment="Left" Margin="303,527,0,0" VerticalAlignment="Top" Width="100" Click="BuildClick" FontSize="13.333"/>
+        <Button x:Name="button2" Content="Расчитать" Grid.Column="1" HorizontalAlignment="Left" Margin="155,527,0,0" VerticalAlignment="Top" Width="100" Click="CalculateClick" FontSize="13.333" />
+        <Button x:Name="button3" Content="Сопоставление с типовыми&#xD;&#xA;профилями радиаторов" Grid.Column="1" HorizontalAlignment="Left" Margin="124,22,0,0" VerticalAlignment="Top" Width="200" Height="80" Click="button3_Click_1" FontSize="13.333" />
+        <Button x:Name="button4" Content="Коэфициенты по умолчанию" Grid.Column="1" HorizontalAlignment="Left" Margin="124,133,0,0" VerticalAlignment="Top" Width="200" Height="40" Click="button4_Click" FontSize="13.333" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350*" />
+            <ColumnDefinition Width="440*" />
+        </Grid.ColumnDefinitions>
+
     </Grid>
 </UserControl>
+
+
