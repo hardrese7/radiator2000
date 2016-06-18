@@ -29,5 +29,10 @@ namespace Radiator2000
         {
             result.Content = powerTextBox.Text;
         }
+
+        private void AB0094_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
