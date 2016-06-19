@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radiator2000"
         mc:Ignorable="d"
-        Title="Радиатор 2016" Height="650" Width="800" ResizeMode="CanMinimize" FontWeight="Bold">
+        Title="Радиатор 2016" Height="650" Width="800" ResizeMode="CanMinimize" FontWeight="Bold" Icon="Resourses/newIcon.ico">
 
     <Grid Name="grid">
 

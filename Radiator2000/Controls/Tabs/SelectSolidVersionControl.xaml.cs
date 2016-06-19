@@ -26,13 +26,16 @@ namespace Radiator2000.Controls.Tabs
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Событие, срабатывающее при выборе версии солидворкс
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void solidVersionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Блаблабла хуета
-            //инициализируем чёто там нах, а потом открываем другую страничку.
             MainWindow win = (MainWindow)Window.GetWindow(this);
-            win._tabControl.OpenPage(Constants.Pages.SelectRadiatorType);
-            win._tabControl.EnableRadiatorTypeCheckbox(true);
+            win._tabControl.OpenPage(Constants.Pages.SelectRadiatorType);//открываем страницу с выбором радиаторов
+            win._tabControl.EnableRadiatorTypeCheckbox(true);//делаем активным чекбокс с радиаторами
         }
     }
 }

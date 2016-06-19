@@ -26,7 +26,11 @@ namespace Radiator2000.Controls
         public Dictionary<string, object> _processDictionary = new Dictionary<string, object>();
         //Dictionary<String, Guid> guids = new Dictionary<string, Guid>();
         //
-
+        /// <summary>
+        /// проверка на то, установлена версия солида или нет, если установлена, то добавляем в список
+        /// </summary>
+        /// <param name="version">версия</param>
+        /// <param name="guid">ид данной версии солида</param>
         private void CheckSolidVersion(string version, Guid guid)
         {
             try
@@ -47,7 +51,9 @@ namespace Radiator2000.Controls
         }
 
 
-
+        /// <summary>
+        /// инициализация окна
+        /// </summary>
         public TabControl()
         {
             _controlsList = new Dictionary<string, UserControl>();
@@ -68,25 +74,17 @@ namespace Radiator2000.Controls
 
 
             #region Проверка версий солида, инициализация
-            Process[] processes = Process.GetProcessesByName("SLDWORKS");
-            foreach (Process process in processes)
-            {
-                process.CloseMainWindow();
-                process.Kill();
-            }
             CheckSolidVersion("2011", new Guid("B4875E89-91F6-4124-BB63-2539727E98F0"));
             CheckSolidVersion("2012", new Guid("B4875E89-91F6-4124-BB63-2539727E98FA"));
             CheckSolidVersion("2013", new Guid("0D825E02-9000-4D82-B4AB-D6BDC2872797"));
             CheckSolidVersion("2014", new Guid("CF33D714-2C34-4608-8766-2536E6C41536"));
 
-            if (solidWersion.Items.Count == 0)
+            if (solidWersion.Items.Count == 0)//если версий солида не установлено
             {
-                MessageBox.Show(Constants.Messages.SolidNotInstalled);
-                //MainWindow win = (MainWindow)Window.GetWindow(this);
-                //rwin.Close();
+                MessageBox.Show(Constants.Messages.SolidNotInstalled);//показываем сообщение
             }
-            solidWersion.Items.Add(Constants.Offline);
-            OpenPage(Constants.Pages.SelectSolidVersionControl);
+            solidWersion.Items.Add(Constants.Offline); //добавляем автономный режим
+            OpenPage(Constants.Pages.SelectSolidVersionControl); //открываем страницу для выбора солида
             #endregion
         }
 
@@ -110,6 +108,12 @@ namespace Radiator2000.Controls
         }
         private Dictionary<string, UserControl> _controlsList;
 
+
+        /// <summary>
+        /// Срабатывает при изменении методики расчёта.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculationMethod_OnChange(object sender, RoutedEventArgs e)
         {
 
@@ -117,10 +121,14 @@ namespace Radiator2000.Controls
             ComboboxItem selectedItem = (ComboboxItem)comboBox.SelectedItem;
             if (selectedItem == null) return;
             var tag = Convert.ToString(selectedItem.Value);
-            OpenPage(tag);
+            OpenPage(tag);//открываем нужную страницу
 
         }
 
+        /// <summary>
+        /// Открывает нужную страницу
+        /// </summary>
+        /// <param name="tag"></param>
         public void OpenPage(string tag)
         {
             UserControl tab;
@@ -134,7 +142,7 @@ namespace Radiator2000.Controls
                 return;
             }
             try
-            // отсыл на страницу Radiator2000.Controls.Tabs.IgolchatiyTab
+            // отсыл на страницу Radiator2000.Controls.Tabs.*
             {
                 tab = (UserControl)Activator.CreateInstance(Type.GetType("Radiator2000.Controls.Tabs." + tag));
                 _controlsList.Add(tag, tab);
@@ -150,6 +158,12 @@ namespace Radiator2000.Controls
             Panel.Children.Add(tab);
         }
 
+
+        /// <summary>
+        /// Срабатывает при выборе типа радиатора
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadiatorType_OnChange(object sender, RoutedEventArgs e)
         {
             var comboBox = sender as ComboBox;
@@ -159,22 +173,15 @@ namespace Radiator2000.Controls
             calculationMethodComboBox.ItemsSource = Helpers.GetItemsForRadiatorType(selectedItem.Text);
             OpenPage(Constants.Pages.SelectCalculationMethod);
             EnableCalculationMethodCheckbox(true);
-
-            //calculationMethodComboBox.Items.Add(new KeyValuePair<string, string>("IgolchatiyTab", "Бородин С.М."));
-            //calculationMethodComboBox.Items.Add(new KeyValuePair<string, string>("IgolchatiyTab", "Скрипников Ю.Ф."));
-            //calculationMethodComboBox.Items.Add(new KeyValuePair<string, string>("IgolchatiyTab", "Роткоп Л.Л."));
-            //calculationMethodComboBox.Items.Add(new KeyValuePair<string, string>("IgolchatiyTab", "ОСТ 4.012.001"));
-
-            //            Бородин С.М.
-            //Скрипников Ю.Ф.
-            //Роткоп Л.Л.
-            //ОСТ 4.012.001
         }
 
+        /// <summary>
+        /// срабатывает при выборе версии солида. Обнуляет все комбобоксы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void solidWersion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Блаблабла хуета
-            //инициализируем чёто там нах, а потом открываем другую страничку.
             OpenPage(Constants.Pages.SelectRadiatorType);
             EnableRadiatorTypeCheckbox(true);
             radiatorTypeComboBox.SelectedIndex = -1;

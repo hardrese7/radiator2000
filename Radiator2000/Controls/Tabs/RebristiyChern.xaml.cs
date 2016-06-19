@@ -32,6 +32,7 @@ namespace Radiator2000.Controls.Tabs
         {
             try
             {
+                ErrorLabel.Visibility = Visibility.Hidden;
                 SwBuild(Calculate());
             }
             catch (Exception ex)
@@ -186,7 +187,7 @@ namespace Radiator2000.Controls.Tabs
 
         private void ErrorHandler(Exception ex)
         {
-            ErrorLabel.Content = ex.Message;
+            ErrorLabel.Text = ex.Message;
             ErrorLabel.Visibility = Visibility.Visible;
         }
         #endregion

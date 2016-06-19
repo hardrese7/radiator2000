@@ -214,10 +214,13 @@
     <Resource Include="ч5.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="AB0094_1.png" />
+    <Resource Include="Resourses\AB0094_1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AB0290_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\newIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

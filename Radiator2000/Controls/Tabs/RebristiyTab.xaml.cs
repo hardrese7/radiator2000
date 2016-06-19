@@ -10,10 +10,13 @@ using System.Windows.Controls.Primitives;
 namespace Radiator2000.Controls.Tabs
 {
     /// <summary>
-    /// Interaction logic for IgolchatiyTab.xaml
+    /// Interaction logic for RebristiyTab.xaml
     /// </summary>
     public partial class RebristiyTab : UserControl
     {
+        /// <summary>
+        /// инициализация окна
+        /// </summary>
         public RebristiyTab()
         {
             InitializeComponent();
@@ -27,16 +30,21 @@ namespace Radiator2000.Controls.Tabs
         {
 
         }
-
+        /// <summary>
+        /// Клик на кнопку Построить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuildClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                SwBuild(Calculate());
+                ErrorLabel.Visibility = Visibility.Hidden; //убираем сообщение об ошибке
+                SwBuild(Calculate()); //расчитываем и отправляем в солид
             }
             catch (Exception ex)
             {
-                ErrorHandler(ex);
+                ErrorHandler(ex); //если возникла ошибка, отправляем её в обработчик ошибок
             }
         }
 
@@ -45,9 +53,13 @@ namespace Radiator2000.Controls.Tabs
 
         }
 
+        /// <summary>
+        /// Берём значения с формы и делаем по ним расчёт
+        /// </summary>
+        /// <returns></returns>
         private RebristiyCalculation Calculate()
         {
-            var calculations = new RebristiyCalculation();   //конвектируем введенные данные в дабл
+            var calculations = new RebristiyCalculation();   //конвертируем введенные данные в дабл
 
             var ts = Convert.ToDouble(TS.Text);      //Температура среды
             var rpk = Convert.ToDouble(Rpk.Text);    //Сопротивление п-н переход-корпус
@@ -55,7 +67,7 @@ namespace Radiator2000.Controls.Tabs
             var p = Convert.ToDouble(P.Text);       //мощность
             var tmax = Convert.ToDouble(Tmax.Text); //Максимальная температура
 
-            var borodinCoefficients = new RebristiyBorodinCoefficients()  //конвектируем введенные данные в дабл
+            var borodinCoefficients = new RebristiyBorodinCoefficients()  //конвертируем введенные данные в дабл и записываем их в специальный класс
             {
                 k3 = Convert.ToDouble(k3_Label.Text),
                 ks = Convert.ToDouble(ks_Label.Text),
@@ -66,7 +78,7 @@ namespace Radiator2000.Controls.Tabs
                 alfa = Convert.ToDouble(alfa_Label.Text)       
                  
             };
-            calculations.Calculate(ts, rpk, rkr, p, tmax, borodinCoefficients);
+            calculations.Calculate(ts, rpk, rkr, p, tmax, borodinCoefficients);// вызываем метод для расчёта радиатора
             return calculations;
         }
 
@@ -81,33 +93,42 @@ namespace Radiator2000.Controls.Tabs
             alfa_Label.Text = "7";
         }
 
+        /// <summary>
+        /// Событие при клике на кнопку "Расчитать"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculateClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                InitCalculationsWindow(Calculate());
+                ErrorLabel.Visibility = Visibility.Hidden;//скрываем ошибку
+                InitCalculationsWindow(Calculate());//инициализируем окно, отправляем туда расчёты
             }
             catch (Exception ex)
             {
-                ErrorHandler(ex);
+                ErrorHandler(ex);//если возникла ошибка, отправляем её в обработчик
             }
         }
         #endregion
 
         #region SwBuild
+        /// <summary>
+        /// Строим по заданым параметрам радиатор в солиде
+        /// </summary>
+        /// <param name="calculations"></param>
         public void SwBuild(RebristiyCalculation calculations)
         {
             SldWorks SwApp;
             IModelDoc2 swModel;
-            //progressBar1.Value += 15;
             //убиваем
-            Process[] processes = Process.GetProcessesByName("SLDWORKS.exe");
-            //проходим по всем процессам, если такой процесс есть
-            foreach (Process process in processes)
-            {
-                process.CloseMainWindow();//закрываем главное окно
-                process.Kill();// убиваем процесс
-            }
+            //Process[] processes = Process.GetProcessesByName("SLDWORKS.exe");
+            ////проходим по всем процессам, если такой процесс есть
+            //foreach (Process process in processes)                                          УБРАТЬ
+            //{
+            //    process.CloseMainWindow();//закрываем главное окно
+            //    process.Kill();// убиваем процесс
+            //}
 
             //запускаем СолидВоркс
             //Guid myGuid1 = new Guid("B4875E89-91F6-4124-BB63-2539727E98FA");//номер приложения для запуска
@@ -164,6 +185,10 @@ namespace Radiator2000.Controls.Tabs
         }
         #endregion
         #region additional methods
+        /// <summary>
+        /// закидываем значения в окно с расчётами
+        /// </summary>
+        /// <param name="calculations"></param>
         public void InitCalculationsWindow(RebristiyCalculation calculations)
         {
             var window = new CalculationsWindow { Owner = (MainWindow)Window.GetWindow(this) };
@@ -186,19 +211,31 @@ namespace Radiator2000.Controls.Tabs
            // window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.H);
            // window.ShowDialog();
        // }
-
+       /// <summary>
+       /// обработчик ошибок
+       /// </summary>
+       /// <param name="ex"></param>
         private void ErrorHandler(Exception ex)
         {
-            ErrorLabel.Content = ex.Message;
-            ErrorLabel.Visibility = Visibility.Visible;
+            ErrorLabel.Text = ex.Message; //выводим текст ошибки
+            ErrorLabel.Visibility = Visibility.Visible; //показываем ошибку
         }
         #endregion
-
+        /// <summary>
+        /// Сброс коэффициентов на стандартные, кнопка "Коэфициенты по умолчанию"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             SetBorodinCoefficients();
         }
 
+        /// <summary>
+        /// Открытие окна с типовыми радиаторами
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click_1(object sender, RoutedEventArgs e)
         {
             var window = new TipovieWindows { Owner = (MainWindow)Window.GetWindow(this) };
