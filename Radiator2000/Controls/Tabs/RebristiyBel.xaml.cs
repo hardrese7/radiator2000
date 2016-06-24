@@ -10,14 +10,14 @@ using System.Windows.Controls.Primitives;
 namespace Radiator2000.Controls.Tabs
 {
     /// <summary>
-    /// Interaction logic for RebristiyChern.xaml
+    /// Interaction logic for RebristiyBel.xaml
     /// </summary>
-    public partial class RebristiyChern : UserControl
+    public partial class RebristiyBel : UserControl
     {
-        public RebristiyChern()
+        public RebristiyBel()
         {
             InitializeComponent();
-            SetChernCoefficients();
+            SetBelCoefficients();
             MainWindow win = (MainWindow)Window.GetWindow(this);
         }
 
@@ -46,17 +46,17 @@ namespace Radiator2000.Controls.Tabs
 
         }
 
-        private RebristiyChernCalculation Calculate()
+        private RebristiyBelCalculation Calculate()
         {
-            var calculations = new RebristiyChernCalculation();   //конвектируем введенные данные в дабл
+            var calculations = new RebristiyBelCalculation();   //конвектируем введенные данные в дабл
 
             var ts = Convert.ToDouble(TS.Text);      //Температура среды
             var rpk = Convert.ToDouble(Rpk.Text);    //Сопротивление п-н переход-корпус
             var rkr = Convert.ToDouble(Rkr.Text);   //сопротивление корпус-радиатор
             var p = Convert.ToDouble(P.Text);       //мощность
             var tmax = Convert.ToDouble(Tmax.Text); //Максимальная температура
-            var e = Convert.ToDouble(E.Text); 
-            var chernCoefficients = new RebristiyChernCoefficients()  //конвектируем введенные данные в дабл
+            var e = Convert.ToDouble(E.Text);
+            var BelCoefficients = new RebristiyBelCoefficients()  //конвектируем введенные данные в дабл
             {
                 b = Convert.ToDouble(b_Label.Text),
                 d = Convert.ToDouble(d_Label.Text),
@@ -64,14 +64,15 @@ namespace Radiator2000.Controls.Tabs
                 h = Convert.ToDouble(h_Label.Text),         // высота ребер
                 delt = Convert.ToDouble(delt_Label.Text),   //толщина основания
                 
+
             };
-            calculations.Calculate(ts, rpk, rkr, p, tmax, e, chernCoefficients);
+            calculations.Calculate(ts, rpk, rkr, p, tmax, e, BelCoefficients);
             return calculations;
         }
 
-        public void SetChernCoefficients()
+        public void SetBelCoefficients()
         {
-           
+
             k4_Label.Text = "1";    //коэф. формы основания
             h_Label.Text = "0,03";  // высота ребер
             b_Label.Text = "0,008";  // межреберное
@@ -93,7 +94,7 @@ namespace Radiator2000.Controls.Tabs
         #endregion
 
         #region SwBuild
-        public void SwBuild(RebristiyChernCalculation calculations)
+        public void SwBuild(RebristiyBelCalculation calculations)
         {
             SldWorks SwApp;
             IModelDoc2 swModel;
@@ -145,7 +146,7 @@ namespace Radiator2000.Controls.Tabs
             swModel.Extension.SelectByID2("Line4", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
             swModel.Extension.SelectByID2("Line3", "SKETCHSEGMENT", 0, 0, 0, true, 0, null, 0);
             //операция выдавливания
-            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, calculations.ChernCoefficients.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
+            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, calculations.BelCoefficients.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
             swModel.SelectionManager.EnableContourSelection = true;
             //boolstatus = swModel.Extension.SelectByID2("", "", 0.035317911637093857, 0.0099999999999909051, 0.0043238272226631125, false, 0, null, 0);
 
@@ -153,31 +154,31 @@ namespace Radiator2000.Controls.Tabs
             swModel.ClearSelection2(true);
             // запускаем цикл построения пластин радиатора
 
-            double tempX = calculations.L - calculations.ChernCoefficients.delt;
+            double tempX = calculations.L - calculations.BelCoefficients.delt;
             swModel.SketchManager.CreateCornerRectangle(calculations.L, calculations.l, 0, tempX, 0, 0);
-            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, calculations.ChernCoefficients.h + calculations.ChernCoefficients.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
+            swModel.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, calculations.BelCoefficients.h + calculations.BelCoefficients.delt, 0.01, false, false, false, false, 1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
             swModel.Extension.SelectByID2("Бобышка-Вытянуть2", "BODYFEATURE", 0.051638235435518709, 0.046942041222166608, 0.023999999999944066, false, 4, null, 0);
-            swModel.Extension.SelectByID2("", "EDGE", 0.017168894188387185, calculations.L, calculations.ChernCoefficients.delt, true, 1, null, 0);
-            swModel.FeatureManager.FeatureLinearPattern2(calculations.Count, calculations.b5 + calculations.ChernCoefficients.delt, 1, calculations.ChernCoefficients.delt, false, false, "NULL", "NULL", false);
+            swModel.Extension.SelectByID2("", "EDGE", 0.017168894188387185, calculations.L, calculations.BelCoefficients.delt, true, 1, null, 0);
+            swModel.FeatureManager.FeatureLinearPattern2(calculations.Count,calculations.b5 + calculations.BelCoefficients.delt, 1, calculations.BelCoefficients.delt, false, false, "NULL", "NULL", false);
         }
         #endregion
         #region additional methods
-        public void InitCalculationsWindow(RebristiyChernCalculation calculations)
+        public void InitCalculationsWindow(RebristiyBelCalculation calculations)
         {
             var window = new CalculationsWindow { Owner = (MainWindow)Window.GetWindow(this) };
             window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.l);
             window.VisotaLabel.Content = string.Format("{0:0.0000}", calculations.L);
-            window.VisotaReberLabel.Content = string.Format("{0:0.000}", calculations.ChernCoefficients.h);
+            window.VisotaReberLabel.Content = string.Format("{0:0.000}", calculations.BelCoefficients.h);
             window.MegreberLabel.Content = string.Format("{0:0.0000}", calculations.b5);
             window.KolishestvoReberLabel.Content = string.Format("{0:0}", calculations.Count);
-            window.TolshinaOsnLabel.Content = string.Format("{0:0.000}", calculations.ChernCoefficients.delt);
+            window.TolshinaOsnLabel.Content = string.Format("{0:0.000}", calculations.BelCoefficients.delt);
             window.PlosadOsnLabel.Content = string.Format("{0:0.000000000}", calculations.sp);
-            window.TolshinaReberLabel.Content = string.Format("{0:0.0000}", calculations.ChernCoefficients.delt);
+            window.TolshinaReberLabel.Content = string.Format("{0:0.0000}", calculations.BelCoefficients.delt);
 
             window.ShowDialog();
         }
 
-        //public void InitTipovieWindows(RebristiyChernCalculation calculations)
+        //public void InitTipovieWindows(RebristiyBelCalculation calculations)
         // {
         //var window = new TipovieWindow { Owner = (MainWindow)Window.GetWindow(this) };
         //window.ShirinaLabel.Content = string.Format("{0:0.0000}", calculations.D);
@@ -194,7 +195,7 @@ namespace Radiator2000.Controls.Tabs
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            SetChernCoefficients();
+            SetBelCoefficients();
         }
 
         private void button3_Click_1(object sender, RoutedEventArgs e)

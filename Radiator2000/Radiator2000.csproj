@@ -73,18 +73,27 @@
     <Compile Include="Controls\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Tabs\RebristiyBel.xaml.cs">
+      <DependentUpon>RebristiyBel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Tabs\RebristiyChern.xaml.cs">
       <DependentUpon>RebristiyChern.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Tabs\Vrazrab.xaml.cs">
       <DependentUpon>Vrazrab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logic\RebristiyBelCalculation.cs" />
+    <Compile Include="Logic\RebristiyBelCoefficients.cs" />
     <Compile Include="Logic\RebristiyChernCalculation.cs" />
     <Compile Include="Logic\RebristiyChernCoefficients.cs" />
     <Compile Include="TipovieWindows.xaml.cs">
       <DependentUpon>TipovieWindows.xaml</DependentUpon>
     </Compile>
     <Page Include="CalculationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tabs\RebristiyBel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,13 +223,28 @@
     <Resource Include="ч5.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resourses\AB0094_1.png" />
+    <Resource Include="AB0094_1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AB0290_1.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resourses\newIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1600x900.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="461495.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="461580.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="566028.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="566029.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

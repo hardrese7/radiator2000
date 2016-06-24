@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Radiator2000"
         mc:Ignorable="d"
-        Title="Сопоставление с типовыми профилями радиаторов" Height="750" Width="800">
+        Title="Сопоставление с типовыми профилями радиаторов" Height="650" Width="800">
     <Grid>
-        <Grid ShowGridLines="False">
+        <Grid ShowGridLines="False" Margin="0,10,0,-10">
             <!-- Устанавливаем две строки -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"></RowDefinition>
@@ -23,10 +23,18 @@
             <Button x:Name="okButton" Content="OK" Grid.Column="1" HorizontalAlignment="Left" Margin="65,30,-75,0" VerticalAlignment="Top" Width="36" Grid.RowSpan="2" Click="okButton_Click"/>
             <TextBlock TextWrapping="WrapWithOverflow" Grid.Column="1" Name="ErrorLabel" Visibility="Hidden" Foreground="#FFF11D1D" Width="Auto" Margin="133,0,-675,0" Grid.Row="1" >
             </TextBlock>
-            <TextBox x:Name="AB0094" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="224,128,-318,-120" Grid.Row="1" TextWrapping="Wrap" Text="AB0094" VerticalAlignment="Top" Width="120"/>
-            <Image x:Name="AB0094_1_png" Margin="20,31,-166,-169" Grid.Row="1" Source="AB0094_1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
-            <Image x:Name="AB0290_1_png" Margin="52,229,-143,-338" Grid.Row="1" Source="AB0290_1.png" Stretch="Fill" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="AB0290" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="224,302,-318,-294" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged"/>
+            <TextBox x:Name="AB0094" HorizontalAlignment="Left" Height="24" Margin="168,121,-262,-114" Grid.Row="1" TextWrapping="Wrap" Text="AB0094" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+            <Image x:Name="AB0094_1_png" Margin="0,31,-146,-169" Grid.Row="1" Source="AB0094_1.png" Stretch="Fill" Grid.ColumnSpan="2" Width="200" Height="140"/>
+            <Image x:Name="AB0290_1_png" Margin="32,220,-115,-329" Grid.Row="1" Source="AB0290_1.png" Stretch="Fill" Grid.ColumnSpan="2" Width="200" Height="140"/>
+            <TextBox x:Name="AB0290" HorizontalAlignment="Left" Height="22" Margin="168,299,-262,-290" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
+            <TextBox x:Name="AB0290_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="168,464,-262,-455" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged"/>
+            <Image x:Name="_461495_jpg" Grid.Column="1" Margin="331,389,-505,-508" Grid.Row="1" Source="461495.jpg" Stretch="Fill" Width="200"/>
+            <Image x:Name="_461580_jpg" Grid.Column="1" Margin="331,220,-505,-329" Grid.Row="1" Source="461580.jpg" Stretch="Fill" Width="200" Height="140"/>
+            <Image x:Name="_566028_jpg" Grid.Column="1" Margin="331,45,-505,-154" Grid.Row="1" Source="566028.jpg" Stretch="Fill" Width="200" Height="141"/>
+            <Image x:Name="_566029_jpg" Margin="32,399,-115,-508" Grid.Row="1" Source="566029.jpg" Stretch="Fill" Grid.ColumnSpan="2" Width="200" Height="140"/>
+            <TextBox x:Name="AB0290_Copy1" HorizontalAlignment="Left" Height="22" Margin="555,121,-649,-112" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
+            <TextBox x:Name="AB0290_Copy2" HorizontalAlignment="Left" Height="22" Margin="555,283,-649,-274" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
+            <TextBox x:Name="AB0290_Copy3" HorizontalAlignment="Left" Height="22" Margin="555,464,-649,-455" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>

@@ -23,8 +23,7 @@ namespace Radiator2000.Controls.Tabs
             SetBorodinCoefficients();
             MainWindow win = (MainWindow)Window.GetWindow(this);
         }
-
-
+        
         #region onclick events
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -59,23 +58,23 @@ namespace Radiator2000.Controls.Tabs
         /// <returns></returns>
         private RebristiyCalculation Calculate()
         {
-            var calculations = new RebristiyCalculation();   //конвертируем введенные данные в дабл
+            var calculations = new RebristiyCalculation();               //конвертируем введенные данные в дабл
 
-            var ts = Convert.ToDouble(TS.Text);      //Температура среды
-            var rpk = Convert.ToDouble(Rpk.Text);    //Сопротивление п-н переход-корпус
-            var rkr = Convert.ToDouble(Rkr.Text);   //сопротивление корпус-радиатор
-            var p = Convert.ToDouble(P.Text);       //мощность
-            var tmax = Convert.ToDouble(Tmax.Text); //Максимальная температура
+            var ts = Convert.ToDouble(TS.Text);                         //Температура среды
+            var rpk = Convert.ToDouble(Rpk.Text);                        //Сопротивление п-н переход-корпус
+            var rkr = Convert.ToDouble(Rkr.Text);                        //сопротивление корпус-радиатор
+            var p = Convert.ToDouble(P.Text);                            //мощность
+            var tmax = Convert.ToDouble(Tmax.Text);                      //Максимальная температура
 
             var borodinCoefficients = new RebristiyBorodinCoefficients()  //конвертируем введенные данные в дабл и записываем их в специальный класс
             {
                 k3 = Convert.ToDouble(k3_Label.Text),
                 ks = Convert.ToDouble(ks_Label.Text),
-                k4 = Convert.ToDouble(k4_Label.Text),       //коэф. формы основания
-                q = Convert.ToDouble(q_Label.Text),       // толщина ребер
-                h = Convert.ToDouble(h_Label.Text),         // высота ребер
-                delt = Convert.ToDouble(delt_Label.Text),   //толщина основания
-                alfa = Convert.ToDouble(alfa_Label.Text)       
+                k4 = Convert.ToDouble(k4_Label.Text),                      //коэф. формы основания
+                q = Convert.ToDouble(q_Label.Text),                        // толщина ребер
+                h = Convert.ToDouble(h_Label.Text),                        // высота ребер
+                delt = Convert.ToDouble(delt_Label.Text),                  //толщина основания
+                alfa = Convert.ToDouble(alfa_Label.Text)        
                  
             };
             calculations.Calculate(ts, rpk, rkr, p, tmax, borodinCoefficients);// вызываем метод для расчёта радиатора
@@ -86,10 +85,10 @@ namespace Radiator2000.Controls.Tabs
         {
             k3_Label.Text = "0,8";
             ks_Label.Text = "7";
-            k4_Label.Text = "1";    //коэф. формы основания
-            h_Label.Text = "0,03";  // высота ребер
-            q_Label.Text = "0,0015";  // толщина ребер
-            delt_Label.Text = "0,004";  //толщина основания
+            k4_Label.Text = "1";                 //коэф. формы основания
+            h_Label.Text = "0,03";               // высота ребер
+            q_Label.Text = "0,0015";             // толщина ребер
+            delt_Label.Text = "0,004";            //толщина основания
             alfa_Label.Text = "7";
         }
 
@@ -102,8 +101,8 @@ namespace Radiator2000.Controls.Tabs
         {
             try
             {
-                ErrorLabel.Visibility = Visibility.Hidden;//скрываем ошибку
-                InitCalculationsWindow(Calculate());//инициализируем окно, отправляем туда расчёты
+                ErrorLabel.Visibility = Visibility.Hidden;               //скрываем ошибку
+                InitCalculationsWindow(Calculate());                     //инициализируем окно, отправляем туда расчёты
             }
             catch (Exception ex)
             {
@@ -217,8 +216,8 @@ namespace Radiator2000.Controls.Tabs
        /// <param name="ex"></param>
         private void ErrorHandler(Exception ex)
         {
-            ErrorLabel.Text = ex.Message; //выводим текст ошибки
-            ErrorLabel.Visibility = Visibility.Visible; //показываем ошибку
+            ErrorLabel.Text = ex.Message;                   //выводим текст ошибки
+            ErrorLabel.Visibility = Visibility.Visible;   //показываем ошибку
         }
         #endregion
         /// <summary>
@@ -240,7 +239,7 @@ namespace Radiator2000.Controls.Tabs
         {
             var window = new TipovieWindows { Owner = (MainWindow)Window.GetWindow(this) };
             window.powerTextBox.Text = P.Text;
-            window.okButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent)); // имитируем клик по кнопке
+            window.okButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));           // имитируем клик по кнопке
             window.ShowDialog();
         }
     }

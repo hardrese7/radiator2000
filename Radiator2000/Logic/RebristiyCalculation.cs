@@ -13,15 +13,15 @@ namespace Radiator2000.Logic
         public int Count { get; set; }
         public double b { get; set; }
         public double sp { get; set; }
-
-                //коэфициенты/приближения
-        public RebristiyBorodinCoefficients BorodinCoefficients { get; set; }
+            
+                                                                                                                                              //коэфициенты/приближения
+        public RebristiyBorodinCoefficients BorodinCoefficients { get; set; }   
 
 
         public void Calculate(double ts, double rpk, double rkr, double p, double tmax, RebristiyBorodinCoefficients borodinCoefficients)
         {
             BorodinCoefficients = borodinCoefficients;
-            double tp, rrc, dts, so, n, dt;//объявляем выходные переменные 
+            double tp, rrc, dts, so, n, dt;                                                                                                  //объявляем выходные переменные 
             //вычисление
             tp = tmax - p * (rpk + rkr);
             if (tp <= ts)

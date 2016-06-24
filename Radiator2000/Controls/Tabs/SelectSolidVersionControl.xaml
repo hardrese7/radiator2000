@@ -7,7 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="790">
     <Grid>
-        <Label VerticalAlignment="Center" Width="340" HorizontalAlignment="Center" Grid.Column="0" FontSize="24"  Height="47">Выберите версию SolidWorks.</Label>
+
+
+        <Image x:Name="___Radiator2000_component_1600x900_jpg" Margin="-324,0,-486,-100" Source="/Radiator2000;component/1600x900.jpg" Stretch="Fill"/>
+
+
+        <Label VerticalAlignment="Center" Width="354" HorizontalAlignment="Center" Grid.Column="0" FontSize="24"  Height="160" Content="Вас приветствует программа &#xA;           &quot;Радиатор 2016&quot;.&#xA;        Для начала расчета &#xA;выберите версию SolidWorks." Foreground="#FFFDFDFD"/>
 
 
     </Grid>

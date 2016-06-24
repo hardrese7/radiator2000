@@ -79,12 +79,12 @@ namespace Radiator2000.Controls
             CheckSolidVersion("2013", new Guid("0D825E02-9000-4D82-B4AB-D6BDC2872797"));
             CheckSolidVersion("2014", new Guid("CF33D714-2C34-4608-8766-2536E6C41536"));
 
-            if (solidWersion.Items.Count == 0)//если версий солида не установлено
+            if (solidWersion.Items.Count == 0)                         //если версий солида не установлено
             {
-                MessageBox.Show(Constants.Messages.SolidNotInstalled);//показываем сообщение
+                MessageBox.Show(Constants.Messages.SolidNotInstalled); //показываем сообщение
             }
-            solidWersion.Items.Add(Constants.Offline); //добавляем автономный режим
-            OpenPage(Constants.Pages.SelectSolidVersionControl); //открываем страницу для выбора солида
+            solidWersion.Items.Add(Constants.Offline);                  //добавляем автономный режим
+            OpenPage(Constants.Pages.SelectSolidVersionControl);        //открываем страницу для выбора солида
             #endregion
         }
 
@@ -121,7 +121,7 @@ namespace Radiator2000.Controls
             ComboboxItem selectedItem = (ComboboxItem)comboBox.SelectedItem;
             if (selectedItem == null) return;
             var tag = Convert.ToString(selectedItem.Value);
-            OpenPage(tag);//открываем нужную страницу
+            OpenPage(tag);                                                       //открываем нужную страницу
 
         }
 
@@ -160,7 +160,7 @@ namespace Radiator2000.Controls
 
 
         /// <summary>
-        /// Срабатывает при выборе типа радиатора
+                                                                                                         /// Срабатывает при выборе типа радиатора
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

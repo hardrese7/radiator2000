@@ -12,6 +12,7 @@ namespace Radiator2000.Logic
         public double l { get; set; }
         public int Count { get; set; }
         public double sp { get; set; }
+        public double b5 { get; set; }
 
 
         //коэфициенты/приближения
@@ -21,20 +22,21 @@ namespace Radiator2000.Logic
         public void Calculate(double tc, double rpk, double rkr, double P, double tmax, double E, RebristiyChernCoefficients chernCoefficients)
         {
             ChernCoefficients = chernCoefficients;
-            double tp, rrc, so, n, dt, alfaKgl, F, alfaL, tm, Tc, A1, alfaGLAD, Pgl, F1, alfaOREB, alfaLoreb, K, M, C1, B, alfaKoreb, Ptoreb, Pteor;//объявляем выходные переменные 
+            double b5, tp, rrc, so, n, dt, alfaKgl, F, alfaL, tm, Tc, A1, alfaGLAD, Pgl, F1, alfaOREB, alfaLoreb, K, M, C1, B, alfaKoreb, Ptoreb, Pteor;//объявляем выходные переменные 
             //вычисление
-            tp = tmax - P * (rpk + rkr);
+            tp = (tmax - P * (rpk + rkr))*0.96;
             if (tp <= tc)
             {
                 throw new Exception("FATAL ERROR: Недопустимые значения");
             }
-            rrc = (0.9 * ((tmax - tc) - P * (rpk + rkr))) / P;
+            rrc = (((tmax - tc) - P * (rpk + rkr))) / P*0.9;
             Tc = P * rrc + tc;
             dt = tp - tc;
-            L = (244.52 * Math.Pow(2.71828182846, (-0.123 * rrc)))/2000;
+            L = (110 * Math.Pow(2.71828182846, (-0.1433 * rrc)))/1000;
             l = ChernCoefficients.k4 * L;
-            n = (l + ChernCoefficients.b) / (ChernCoefficients.b + ChernCoefficients.d);
+            n = (L + ChernCoefficients.b) / (ChernCoefficients.b + ChernCoefficients.d);
             Count = Convert.ToInt32(Math.Round(n, MidpointRounding.AwayFromZero));
+            b5 = (L - ChernCoefficients.delt * Count) / (Count - 1);
 
             sp = (n - 1) * L * ChernCoefficients.b + (ChernCoefficients.delt + 2 * ChernCoefficients.h) * L * n + 2 * l * ChernCoefficients.delt + 2 * n * ChernCoefficients.delt * ChernCoefficients.h + L * l;
             B = Math.Pow((dt / L), 0.25);
