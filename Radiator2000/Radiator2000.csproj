@@ -73,6 +73,9 @@
     <Compile Include="Controls\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Tabs\IgolShtirTab.xaml.cs">
+      <DependentUpon>IgolShtirTab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Tabs\RebristiyBel.xaml.cs">
       <DependentUpon>RebristiyBel.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,8 @@
     <Compile Include="Controls\Tabs\Vrazrab.xaml.cs">
       <DependentUpon>Vrazrab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logic\IgolShtirCalculation.cs" />
+    <Compile Include="Logic\IgolShtirCoefficients.cs" />
     <Compile Include="Logic\RebristiyBelCalculation.cs" />
     <Compile Include="Logic\RebristiyBelCoefficients.cs" />
     <Compile Include="Logic\RebristiyChernCalculation.cs" />
@@ -90,6 +95,10 @@
       <DependentUpon>TipovieWindows.xaml</DependentUpon>
     </Compile>
     <Page Include="CalculationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tabs\IgolShtirTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

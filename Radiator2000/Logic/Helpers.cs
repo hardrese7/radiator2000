@@ -22,7 +22,7 @@ namespace Radiator2000.Logic
             else if (type == Constants.RadiatorTypes.IgolchatoStyrevoy)
             {
                 answer.Add(new ComboboxItem("Белоусов О. А.", "Vrazrab"));
-                answer.Add(new ComboboxItem("Бородин С. М.", "Vrazrab"));
+                answer.Add(new ComboboxItem("Бородин С. М.", "IgolShtirTab"));
                 answer.Add(new ComboboxItem("Скрипников Ю. Ф.", "Vrazrab"));
             }
             else if (type == Constants.RadiatorTypes.Zhaluziynyi)
