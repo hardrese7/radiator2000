@@ -43,6 +43,23 @@ namespace Radiator2000
         {
 
         }
+      
+        private void AB0094_Copy_TextChanged1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void AB0094_Copy_TextChanged2(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void AB0094_Copy_TextChanged3(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void AB0094_Copy_TextChanged4(object sender, TextChangedEventArgs e)
+        {
+
+        }
         /// <summary>
         /// считает все длины и выводит ошибку если она есть
         /// </summary>
@@ -53,6 +70,10 @@ namespace Radiator2000
                 ErrorLabel.Visibility = Visibility.Hidden;
                 CalculateAB0094Length();
                 CalculateAB0290Length();
+                Calculate566029Length();
+                Calculate566028Length();
+                Calculate461580Length();
+                Calculate461495Length();
             }
             catch (Exception ex)
             {
@@ -75,7 +96,7 @@ namespace Radiator2000
         /// </summary>
         public void CalculateAB0094Length()
         {
-            AB0094.Text = (Convert.ToDouble(powerTextBox.Text) * 0.3).ToString();
+            AB0094.Text = (Convert.ToDouble(powerTextBox.Text) * 3.5).ToString();
         }
 
         /// <summary>
@@ -83,7 +104,35 @@ namespace Radiator2000
         /// </summary>
         public void CalculateAB0290Length()
         {
-            AB0290.Text = (Convert.ToDouble(powerTextBox.Text) * 0.42).ToString();
+            AB0290.Text = (Convert.ToDouble(powerTextBox.Text) * 5).ToString();
+        }
+        /// <summary>
+        /// расчёт для AB0290
+        /// </summary>
+        public void Calculate566029Length()
+        {
+            n_566029.Text = (Convert.ToDouble(powerTextBox.Text) * 4.2).ToString();
+        }
+        /// <summary>
+        /// расчёт для AB0290
+        /// </summary>
+        public void Calculate566028Length()
+        {
+            n_5660228.Text = (Convert.ToDouble(powerTextBox.Text) * 5.4).ToString();
+        }
+        /// <summary>
+        /// расчёт для AB0290
+        /// </summary>
+        public void Calculate461580Length()
+        {
+            n_461580.Text = (Convert.ToDouble(powerTextBox.Text) * 7).ToString();
+        }
+        /// <summary>
+        /// расчёт для AB0290
+        /// </summary>
+        public void Calculate461495Length()
+        {
+            n_461495.Text = (Convert.ToDouble(powerTextBox.Text) * 7.5).ToString();
         }
     }
 }

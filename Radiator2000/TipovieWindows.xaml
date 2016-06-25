@@ -18,23 +18,28 @@
                 <ColumnDefinition Width="90"></ColumnDefinition>
                 <ColumnDefinition Width="25"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="powerTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="20,0,-23,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="powerTextBox" HorizontalAlignment="Left" Height="23" Margin="108,16,-202,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.RowSpan="2"/>
             <Label x:Name="result" Content="" HorizontalAlignment="Left" Height="100" Width="Auto" Margin="64,67,0,-136" Grid.Row="1" VerticalAlignment="Top"/>
-            <Button x:Name="okButton" Content="OK" Grid.Column="1" HorizontalAlignment="Left" Margin="65,30,-75,0" VerticalAlignment="Top" Width="36" Grid.RowSpan="2" Click="okButton_Click"/>
+            <Button x:Name="okButton" Content="OK" Grid.Column="1" HorizontalAlignment="Left" Margin="244,15,-262,0" VerticalAlignment="Top" Width="44" Grid.RowSpan="2" Click="okButton_Click"/>
             <TextBlock TextWrapping="WrapWithOverflow" Grid.Column="1" Name="ErrorLabel" Visibility="Hidden" Foreground="#FFF11D1D" Width="Auto" Margin="133,0,-675,0" Grid.Row="1" >
             </TextBlock>
             <TextBox x:Name="AB0094" HorizontalAlignment="Left" Height="24" Margin="168,121,-262,-114" Grid.Row="1" TextWrapping="Wrap" Text="AB0094" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
             <Image x:Name="AB0094_1_png" Margin="0,31,-146,-169" Grid.Row="1" Source="AB0094_1.png" Stretch="Fill" Grid.ColumnSpan="2" Width="200" Height="140"/>
             <Image x:Name="AB0290_1_png" Margin="32,220,-115,-329" Grid.Row="1" Source="AB0290_1.png" Stretch="Fill" Grid.ColumnSpan="2" Width="200" Height="140"/>
             <TextBox x:Name="AB0290" HorizontalAlignment="Left" Height="22" Margin="168,299,-262,-290" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
-            <TextBox x:Name="AB0290_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="168,464,-262,-455" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged"/>
+            <TextBox x:Name="n_566029" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="168,464,-262,-455" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged1"/>
             <Image x:Name="_461495_jpg" Grid.Column="1" Margin="331,389,-505,-508" Grid.Row="1" Source="461495.jpg" Stretch="Fill" Width="200"/>
             <Image x:Name="_461580_jpg" Grid.Column="1" Margin="331,220,-505,-329" Grid.Row="1" Source="461580.jpg" Stretch="Fill" Width="200" Height="140"/>
             <Image x:Name="_566028_jpg" Grid.Column="1" Margin="331,45,-505,-154" Grid.Row="1" Source="566028.jpg" Stretch="Fill" Width="200" Height="141"/>
             <Image x:Name="_566029_jpg" Margin="32,399,-115,-508" Grid.Row="1" Source="566029.jpg" Stretch="Fill" Grid.ColumnSpan="2" Width="200" Height="140"/>
-            <TextBox x:Name="AB0290_Copy1" HorizontalAlignment="Left" Height="22" Margin="555,121,-649,-112" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
-            <TextBox x:Name="AB0290_Copy2" HorizontalAlignment="Left" Height="22" Margin="555,283,-649,-274" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
-            <TextBox x:Name="AB0290_Copy3" HorizontalAlignment="Left" Height="22" Margin="555,464,-649,-455" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged" Grid.Column="1"/>
+            <TextBox x:Name="n_5660228" HorizontalAlignment="Left" Height="22" Margin="555,121,-649,-112" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged2" Grid.Column="1"/>
+            <TextBox x:Name="n_461580" HorizontalAlignment="Left" Height="22" Margin="555,283,-649,-274" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged3" Grid.Column="1"/>
+            <TextBox x:Name="n_461495" HorizontalAlignment="Left" Height="22" Margin="555,464,-649,-455" Grid.Row="1" TextWrapping="Wrap" Text="AB0290" VerticalAlignment="Top" Width="120" TextChanged="AB0094_Copy_TextChanged4" Grid.Column="1"/>
+            <Label x:Name="label" Content="               566029&#xD;&#xA;Материал - Спалв АД31" HorizontalAlignment="Left" Height="100" Margin="81,360,-148,-429" Grid.Row="1" VerticalAlignment="Top" Width="184" FontStyle="Italic" Grid.ColumnSpan="2"/>
+            <Label x:Name="label_Copy3" Content="               461495&#xA;Материал - Спалв АД31" HorizontalAlignment="Left" Height="100" Margin="356,360,-514,-429" Grid.Row="1" VerticalAlignment="Top" Width="184" FontStyle="Italic" Grid.Column="1"/>
+            <Label x:Name="label_Copy2" Content="               461580&#xA;Материал - Спалв АД31" HorizontalAlignment="Left" Height="100" Margin="347,191,-505,-260" Grid.Row="1" VerticalAlignment="Top" Width="184" FontStyle="Italic" Grid.Column="1"/>
+            <Label x:Name="label_Copy1" Content="               566028&#xA;Материал - Спалв АД31" HorizontalAlignment="Left" Height="100" Margin="347,10,-505,-79" VerticalAlignment="Top" Width="184" FontStyle="Italic" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="label1" Content="Мощность Р, Вт:" HorizontalAlignment="Left" Height="100" Margin="64,10,-97,-48" VerticalAlignment="Top" Width="150" Grid.ColumnSpan="2" Grid.RowSpan="2" FontSize="16"/>
         </Grid>
     </Grid>
 </Window>
